@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'components/css.php'; ?>
+<?php include 'inc/connect.php';
+session_start();
+if (isset($_SESSION['username'])) {
+    $nom = $_SESSION['username'];
+?>
+
 <body>
     <!-- loader -->
     <div id="global-loader">
@@ -8,7 +14,7 @@
     </div>
     <!-- end loader -->
     <div class="main-wrapper">
-        <!-- header -->  
+        <!-- header -->
         <?php include 'components/header.php'; ?>
         <?php include 'components/sidebar.php'; ?>
         <div class="page-wrapper">
@@ -21,7 +27,8 @@
                         <div class="card-header pb-0 d-flex justify-content-between align-items-center">
                             <h4 class="card-title mb-0">Recently Added Products</h4>
                             <div class="dropdown">
-                                <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false" class="dropset">
+                                <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"
+                                    class="dropset">
                                     <i class="fa fa-ellipsis-v"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -167,7 +174,15 @@
             </div>
         </div>
     </div>
-        </div>
-        <?php include 'components/js.php'; ?>
+    </div>
+    <?php include 'components/js.php'; ?>
 </body>
+<?php
+} else {
+    header("Location: signin.php");
+}
+?>
+
+
+
 </html>
