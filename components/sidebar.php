@@ -10,16 +10,16 @@
                     <a href="javascript:void(0);"><img src="assets/img/icons/product.svg" alt="img"><span>
                             Product</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="productlist.html">Product List</a></li>
-                        <li><a href="addproduct.html">Add Product</a></li>
-                        <li><a href="categorylist.html">Category List</a></li>
-                        <li><a href="addcategory.html">Add Category</a></li>
-                        <li><a href="subcategorylist.html">Sub Category List</a></li>
-                        <li><a href="subaddcategory.html">Add Sub Category</a></li>
-                        <li><a href="brandlist.html">Brand List</a></li>
+                        <li><a href="product/productlist.php">Product List</a></li>
+                        <li><a href="product/addproduct.php">Add Product</a></li>
+                        <li><a href="categories/categorylist.php">Category List</a></li>
+                        <li><a href="categories/addcategory.php">Add Category</a></li>
+                        <!-- <li><a href="subcategorylist.php">Sub Category List</a></li>
+                        <li><a href="subaddcategory.php">Add Sub Category</a></li> -->
+                        <!-- <li><a href="brandlist.html">Brand List</a></li>
                         <li><a href="addbrand.html">Add Brand</a></li>
                         <li><a href="importproduct.html">Import Products</a></li>
-                        <li><a href="barcode.html">Print Barcode</a></li>
+                        <li><a href="barcode.html">Print Barcode</a></li> -->
                     </ul>
                 </li>
                 <li class="submenu">
@@ -42,6 +42,7 @@
                         <li><a href="importpurchase.html">Import Purchase</a></li>
                     </ul>
                 </li>
+                <!-- 
                 <li class="submenu">
                     <a href="javascript:void(0);"><img src="assets/img/icons/expense1.svg" alt="img"><span>
                             Expense</span> <span class="menu-arrow"></span></a>
@@ -50,15 +51,15 @@
                         <li><a href="createexpense.html">Add Expense</a></li>
                         <li><a href="expensecategory.html">Expense Category</a></li>
                     </ul>
-                </li>
-                <li class="submenu">
+                </li> -->
+                <!-- <li class="submenu">
                     <a href="javascript:void(0);"><img src="assets/img/icons/quotation1.svg" alt="img"><span>
                             Quotation</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="quotationList.html">Quotation List</a></li>
                         <li><a href="addquotation.html">Add Quotation</a></li>
                     </ul>
-                </li>
+                </li> -->
                 <!-- 
                 <li class="submenu">
                     <a href="javascript:void(0);"><img src="assets/img/icons/transfer1.svg" alt="img"><span> Transfer</span> <span class="menu-arrow"></span></a>
@@ -81,14 +82,14 @@
                     <a href="javascript:void(0);"><img src="assets/img/icons/users1.svg" alt="img"><span> People</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="customerlist.html">Customer List</a></li>
-                        <li><a href="addcustomer.html">Add Customer </a></li>
-                        <li><a href="supplierlist.html">Supplier List</a></li>
-                        <li><a href="addsupplier.html">Add Supplier </a></li>
-                        <li><a href="userlist.html">User List</a></li>
-                        <li><a href="adduser.html">Add User</a></li>
-                        <li><a href="storelist.html">Store List</a></li>
-                        <li><a href="addstore.html">Add Store</a></li>
+                        <li><a href="customerlist.php">Customer List</a></li>
+                        <li><a href="addcustomer.php">Add Customer </a></li>
+                        <li><a href="fournisseurs/supplierlist.php">Supplier List</a></li>
+                        <li><a href="fournisseurs/addsupplier.php">Add Supplier </a></li>
+                        <li><a href="userlist.php">User List</a></li>
+                        <li><a href="adduser.php">Add User</a></li>
+                        <li><a href="storelist.php">Store List</a></li>
+                        <li><a href="addstore.php">Add Store</a></li>
                     </ul>
                 </li>
                 <!-- <li class="submenu">
