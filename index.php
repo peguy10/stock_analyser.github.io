@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'components/css.php'; ?>
-<?php include 'inc/connect.php';
+<?php include __DIR__ . '/inc/connect.php';
 session_start();
 if (isset($_SESSION['username'])) {
     $nom = $_SESSION['username'];
 ?>
-
+<?php include __DIR__ . '/components/css.php'; ?>
 <body>
     <!-- loader -->
     <div id="global-loader">
@@ -15,13 +14,13 @@ if (isset($_SESSION['username'])) {
     <!-- end loader -->
     <div class="main-wrapper">
         <!-- header -->
-        <?php include 'components/header.php'; ?>
-        <?php include 'components/sidebar.php'; ?>
+        <?php include __DIR__ . '/components/header.php'; ?>
+        <?php include __DIR__ . '/components/sidebar.php'; ?>
         <div class="page-wrapper">
             <div class="content">
-                <?php include 'components/card.php'; ?>
+                <?php include __DIR__ . '/components/card.php'; ?>
 
-                <?php include 'components/chart.php'; ?>
+                <?php include __DIR__ . '/components/chart.php'; ?>
                 <div class="col-lg-5 col-sm-12 col-12 d-flex">
                     <div class="card flex-fill">
                         <div class="card-header pb-0 d-flex justify-content-between align-items-center">
@@ -175,7 +174,7 @@ if (isset($_SESSION['username'])) {
         </div>
     </div>
     </div>
-    <?php include 'components/js.php'; ?>
+    <?php include __DIR__ . '/components/js.php'; ?>
 </body>
 <?php
 } else {

@@ -82,8 +82,8 @@
                     <a href="javascript:void(0);"><img src="assets/img/icons/users1.svg" alt="img"><span> People</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="customerlist.php">Customer List</a></li>
-                        <li><a href="addcustomer.php">Add Customer </a></li>
+                        <li><a href="clients/customerlist.php">Customer List</a></li>
+                        <li><a href="clients/addcustomer.php">Add Customer </a></li>
                         <li><a href="fournisseurs/supplierlist.php">Supplier List</a></li>
                         <li><a href="fournisseurs/addsupplier.php">Add Supplier </a></li>
                         <li><a href="userlist.php">User List</a></li>

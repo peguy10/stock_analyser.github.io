@@ -7,7 +7,7 @@
     <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Dreams Pos admin template</title>
+    <title>SROCK ANALYSER</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
 
@@ -35,15 +35,16 @@
 
         <?php include('../components/header2.php'); ?>
         <?php include('../components/sidebar2.php'); ?>
+
         <div class="page-wrapper">
             <div class="content">
                 <div class="page-header">
                     <div class="page-title">
-                        <h4>Supplier List</h4>
-                        <h6>Manage your Supplier</h6>
+                        <h4>Customer List</h4>
+                        <h6>Manage your Customers</h6>
                     </div>
                     <div class="page-btn">
-                        <a href="addsupplier.php" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img">Add Supplier</a>
+                        <a href="addcustomer.php" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img">Add Customer</a>
                     </div>
                 </div>
 
@@ -81,17 +82,17 @@
                                 <div class="row">
                                     <div class="col-lg-2 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <input type="text" placeholder="Enter Supplier Code">
+                                            <input type="text" placeholder="Enter Customer Code">
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <input type="text" placeholder="Enter Supplier">
+                                            <input type="text" placeholder="Enter Customer Name">
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <input type="text" placeholder="Enter Phone">
+                                            <input type="text" placeholder="Enter Phone Number">
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-sm-6 col-12">
@@ -99,7 +100,7 @@
                                             <input type="text" placeholder="Enter Email">
                                         </div>
                                     </div>
-                                    <div class="col-lg-1 col-sm-6 col-12 ms-auto">
+                                    <div class="col-lg-1 col-sm-6 col-12  ms-auto">
                                         <div class="form-group">
                                             <a class="btn btn-filters ms-auto"><img src="../assets/img/icons/search-whites.svg" alt="img"></a>
                                         </div>
@@ -109,7 +110,7 @@
                         </div>
 
                         <div class="table-responsive">
-                            <table class="table datanew">
+                            <table class="table  datanew">
                                 <thead>
                                     <tr>
                                         <th>
@@ -118,8 +119,9 @@
                                                 <span class="checkmarks"></span>
                                             </label>
                                         </th>
-                                        <th>Supplier Name</th>
+                                        <th>Customer Name</th>
                                         <th>code</th>
+                                        <th>Customer</th>
                                         <th>Phone</th>
                                         <th>email</th>
                                         <th>Country</th>
@@ -136,16 +138,17 @@
                                         </td>
                                         <td class="productimgname">
                                             <a href="javascript:void(0);" class="product-img">
-                                                <img src="../assets/img/product/noimage.png" alt="product">
+                                                <img src="../assets/img/customer/customer1.jpg" alt="product">
                                             </a>
-                                            <a href="javascript:void(0);">Vinayak Tools</a>
+                                            <a href="javascript:void(0);">Thomas</a>
                                         </td>
-                                        <td>681</td>
-                                        <td>123-456-888</td>
-                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bad0d5d2d4fadfc2dbd7cad6df94d9d5d7">[email&#160;protected]</a></td>
-                                        <td>Albania</td>
+                                        <td>201</td>
+                                        <td>Thomas</td>
+                                        <td>+12163547758 </td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1165797e7c7062517469707c617d743f727e7c">[email&#160;protected]</a></td>
+                                        <td>USA</td>
                                         <td>
-                                            <a class="me-3" href="editsupplier.html">
+                                            <a class="me-3" href="editcustomer.html">
                                                 <img src="../assets/img/icons/edit.svg" alt="img">
                                             </a>
                                             <a class="me-3 confirm-text" href="javascript:void(0);">
@@ -178,16 +181,16 @@
                                 <tr>
                                     <th>Date</th>
                                     <th>Reference</th>
-                                    <th>Amount  </th>
-                                    <th>Paid By </th>
-                                    <th>Paid By </th>
+                                    <th>Amount	</th>
+                                    <th>Paid By	</th>
+                                    <th>Paid By	</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="bor-b1">
-                                    <td>2022-03-07  </td>
+                                    <td>2022-03-07	</td>
                                     <td>INV/SL0101</td>
-                                    <td>$ 1500.00   </td>
+                                    <td>$ 1500.00	</td>
                                     <td>Cash</td>
                                     <td>
                                         <a class="me-2" href="javascript:void(0);">
