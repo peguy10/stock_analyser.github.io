@@ -23,7 +23,8 @@
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="../javascript:void(0);"><img src="../assets/img/icons/sales1.svg" alt="img"><span> Ventes</span>
+                    <a href="../javascript:void(0);"><img src="../assets/img/icons/sales1.svg" alt="img"><span>
+                            Ventes</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="../sales/saleslist.php">liste des ventes</a></li>
@@ -35,11 +36,11 @@
                 </li>
                 <li class="submenu">
                     <a href="../javascript:void(0);"><img src="../assets/img/icons/purchase1.svg" alt="img"><span>
-                            Purchase</span> <span class="menu-arrow"></span></a>
+                            Achat</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="../purchases/purchaselist.php">Purchase List</a></li>
-                        <li><a href="../purchases/addpurchase.php">Add Purchase</a></li>
-                        <li><a href="../purchases/importpurchase.php">Import Purchase</a></li>
+                        <li><a href="../purchases/purchaselist.php">Achat Liste</a></li>
+                        <li><a href="../purchases/addpurchase.php">New Achat</a></li>
+                        <li><a href="../purchases/importpurchase.php">Import Achat</a></li>
                     </ul>
                 </li>
                 <!-- 
@@ -79,18 +80,20 @@
                     </ul>
                 </li> -->
                 <li class="submenu">
-                    <a href="../javascript:void(0);"><img src="../assets/img/icons/users1.svg" alt="img"><span> People</span>
+                    <a href="../javascript:void(0);"><img src="../assets/img/icons/users1.svg" alt="img"><span>
+                            Personnes</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="../clients/customerlist.php">Customer List</a></li>
-                        <li><a href="../clients/addcustomer.php">Add Customer </a></li>
-                        <li><a href="../fournisseurs/supplierlist.php">Supplier List</a></li>
-                        <li><a href="../fournisseurs/addsupplier.php">Add Supplier </a></li>
-                        <li><a href="../users/userlist.php">User List</a></li>
-                        <li><a href="../users/adduser.php">Add User</a></li>
+                        <li><a href="../clients/customerlist.php">Liste Client</a></li>
+                        <li><a href="../clients/addcustomer.php">AJouter Client</a></li>
+                        <li><a href="../fournisseurs/supplierlist.php">Liste Fournisseur</a></li>
+                        <li><a href="../fournisseurs/addsupplier.php">New Fournisseur </a></li>
+                        <li><a href="../users/userlist.php">Liste des Utilisateurs</a></li>
+                        <li><a href="../users/adduser.php">New Utilisateur</a></li>
                         <!-- <li><a href="../storelist.php">Store List</a></li>
                         <li><a href="../addstore.php">Add Store</a></li>
- -->                    </ul>
+ -->
+                    </ul>
                 </li>
                 <!-- <li class="submenu">
                     <a href="../javascript:void(0);"><img src="../assets/img/icons/places.svg" alt="img"><span> Places</span> <span class="menu-arrow"></span></a>
@@ -191,20 +194,22 @@
                     </ul>
                 </li> -->
                 <li class="submenu">
-                    <a href="../javascript:void(0);"><img src="../assets/img/icons/time.svg" alt="img"><span> Report</span>
+                    <a href="../javascript:void(0);"><img src="../assets/img/icons/time.svg" alt="img"><span>
+                            Report</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="../purchaseorderreport.php">Purchase order report</a></li>
+                        <li><a href="../purchaseorderreport.php">Achat commande report</a></li>
                         <li><a href="../inventoryreport.php">Inventory Report</a></li>
-                        <li><a href="../salesreport.php">Sales Report</a></li>
-                        <li><a href="../invoicereport.php">Invoice Report</a></li>
-                        <li><a href="../purchasereport.php">Purchase Report</a></li>
-                        <li><a href="../supplierreport.php">Supplier Report</a></li>
-                        <li><a href="../customerreport.php">Customer Report</a></li>
+                        <li><a href="../salesreport.php">vente Report</a></li>
+                        <li><a href="../invoicereport.php">facture Report</a></li>
+                        <li><a href="../purchasereport.php">achat Report</a></li>
+                        <li><a href="../supplierreport.php">fournisseur Report</a></li>
+                        <li><a href="../customerreport.php">Client Report</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="../javascript:void(0);"><img src="../assets/img/icons/users1.svg" alt="img"><span> Users</span>
+                    <a href="../javascript:void(0);"><img src="../assets/img/icons/users1.svg" alt="img"><span>
+                            Utilisateur</span>
                         <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="../users/newuser.php">New User </a></li>
