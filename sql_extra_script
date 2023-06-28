@@ -1,0 +1,1 @@
+ALTER TABLE product_list ADD COLUMN subcategory VARCHAR(100) AFTER category, ADD COLUMN description VARCHAR(100) AFTER product_image, ADD COLUMN status VARCHAR(100) AFTER product_image, ADD COLUMN minimumquantity INT(100) AFTER quantity, ADD COLUMN tax INT(100) AFTER price, ADD COLUMN discounttype INT(100) AFTER price;
