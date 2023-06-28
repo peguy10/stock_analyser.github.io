@@ -1,5 +1,30 @@
-﻿<!DOCTYPE html>
+﻿<?php
+// Inclure le fichier de fonctions CRUD
+require_once('functions.php');
+
+
+
+// Vérifier si le formulaire de mise à jour a été soumis
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $name = $_POST['nom_cat'];
+    $code = $_POST['code_cat'];
+    $description = $_POST['description_cat'];
+    // updateFournisseur($id, $name, $code, $description);
+}
+
+// Vérifier si le formulaire de suppression a été soumis
+if (isset($_POST['delete'])) {
+    $id = $_POST['id'];
+    deleteFournisseur($id);
+}
+
+// Récupérer toutes les catégories
+$fournisseurs = getFournisseurs();
+?>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -7,7 +32,7 @@
     <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Dreams Pos admin template</title>
+    <title>STOCK ANALYSER</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
 
@@ -26,6 +51,7 @@
 
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body>
     <div id="global-loader">
         <div class="whirly-loader"> </div>
@@ -76,37 +102,7 @@
                             </div>
                         </div>
 
-                        <div class="card" id="filter_inputs">
-                            <div class="card-body pb-0">
-                                <div class="row">
-                                    <div class="col-lg-2 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Enter Supplier Code">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Enter Supplier">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Enter Phone">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Enter Email">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-1 col-sm-6 col-12 ms-auto">
-                                        <div class="form-group">
-                                            <a class="btn btn-filters ms-auto"><img src="../assets/img/icons/search-whites.svg" alt="img"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php include('searchSupplier.php'); ?>
 
                         <div class="table-responsive">
                             <table class="table datanew">
@@ -123,36 +119,46 @@
                                         <th>Phone</th>
                                         <th>email</th>
                                         <th>Country</th>
+                                        <th>ville</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <label class="checkboxs">
-                                                <input type="checkbox">
-                                                <span class="checkmarks"></span>
-                                            </label>
-                                        </td>
-                                        <td class="productimgname">
-                                            <a href="javascript:void(0);" class="product-img">
-                                                <img src="../assets/img/product/noimage.png" alt="product">
-                                            </a>
-                                            <a href="javascript:void(0);">Vinayak Tools</a>
-                                        </td>
-                                        <td>681</td>
-                                        <td>123-456-888</td>
-                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bad0d5d2d4fadfc2dbd7cad6df94d9d5d7">[email&#160;protected]</a></td>
-                                        <td>Albania</td>
-                                        <td>
-                                            <a class="me-3" href="editsupplier.html">
-                                                <img src="../assets/img/icons/edit.svg" alt="img">
-                                            </a>
-                                            <a class="me-3 confirm-text" href="javascript:void(0);">
-                                                <img src="../assets/img/icons/delete.svg" alt="img">
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <?php foreach ($fournisseurs as $fournisseur) : ?>
+
+                                        <tr>
+                                            <td>
+                                                <label class="checkboxs">
+                                                    <input type="checkbox">
+                                                    <span class="checkmarks"></span>
+                                                </label>
+                                            </td>
+                                            <td class="productimgname">
+                                                <a href="javascript:void(0);" class="product-img">
+                                                    <img src="../images/fournisseurs/<?php echo $fournisseur['logo_f']; ?>">
+                                                </a>
+                                                <a href="javascript:void(0);"><?php echo $fournisseur['nom_f']; ?></a>
+                                            </td>
+                                            <td><?php echo $fournisseur['code_f']; ?></td>
+                                            <td><?php echo $fournisseur['phone_f']; ?></td>
+                                            <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bad0d5d2d4fadfc2dbd7cad6df94d9d5d7">[<?php echo $fournisseur['email_f']; ?>&#160;protected]</a></td>
+                                            <td><?php echo $fournisseur['pays_f']; ?></td>
+                                            <td><?php echo $fournisseur['ville_f']; ?></td>
+                                            <td>
+                                                <form method="post">
+                                                    <input type="hidden" name="id" value="<?php echo $fournisseur['id_f']; ?>">
+
+                                                    <!-- <a class="me-3" data-bs-toggle="modal" data-bs-target="#editmodal<?php echo $category['id_cat']; ?>">
+                                                        <img src="../assets/img/icons/edit.svg" alt="img">
+                                                    </a> -->
+                                                    <button type="submit" name="delete" - class="me-3 border-0 bg-transparent confirm-text" href="javascript:void(0);">
+                                                        <img src="../assets/img/icons/delete.svg" alt="img">
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+
                                 </tbody>
                             </table>
                         </div>
@@ -178,16 +184,16 @@
                                 <tr>
                                     <th>Date</th>
                                     <th>Reference</th>
-                                    <th>Amount  </th>
+                                    <th>Amount </th>
                                     <th>Paid By </th>
                                     <th>Paid By </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="bor-b1">
-                                    <td>2022-03-07  </td>
+                                    <td>2022-03-07 </td>
                                     <td>INV/SL0101</td>
-                                    <td>$ 1500.00   </td>
+                                    <td>$ 1500.00 </td>
                                     <td>Cash</td>
                                     <td>
                                         <a class="me-2" href="javascript:void(0);">
@@ -340,7 +346,8 @@
     </div>
 
 
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
 
     <script src="../assets/js/feather.min.js"></script>
 
@@ -361,4 +368,5 @@
 
     <script src="../assets/js/script.js"></script>
 </body>
+
 </html>

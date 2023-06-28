@@ -1,3 +1,20 @@
+<?php
+// Inclure le fichier de fonctions CRUD
+require_once('functions.php');
+
+// Vérifier si le formulaire d'ajout a été soumis
+if (isset($_POST['add'])) {
+    $name = $_POST['nom_f'];
+    $email = $_POST['email_f'];
+    $phone = $_POST['phone_f'];
+    $logo = $_POST['logo_f'];
+    $ville = $_POST['ville_f'];
+    $pays = $_POST['pays_f'];
+    $code = $_POST['code_f'];
+    addFournisseur($name, $email, $phone, $logo, $ville, $pays, $code);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +22,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <meta name="description" content="POS - Bootstrap Admin Template">
-    <meta name="keywords"
-        content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
+    <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
     <title>Dreams Pos admin template</title>
@@ -45,79 +61,71 @@
                         <h6>Add/Update Customer</h6>
                     </div>
                 </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Supplier Name</label>
-                                    <input type="text">
+                <form action="#" method="post">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Supplier Name</label>
+                                        <input type="text" name="nom_f">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="text">
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="text" name="email_f">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                    <input type="text">
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Phone</label>
+                                        <input type="text" name="phone_f">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Choose Country</label>
-                                    <select class="select">
-                                        <option>Choose Country</option>
-                                        <option>India</option>
-                                        <option>USA</option>
-                                    </select>
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Choose Country</label>
+                                        <select class="select" name="pays_f">
+                                            <option>Choose Country</option>
+                                            <option value="Cameroun">Cameroun</option>
+                                            <option value="Gabon">Gabon</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>City</label>
-                                    <select class="select">
-                                        <option>Choose City</option>
-                                        <option>City 1</option>
-                                        <option>City 2</option>
-                                    </select>
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input type="text" name="ville_f">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-9 col-12">
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <input type="text">
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>code</label>
+                                        <input type="text" name="code_f">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label>Description</label>
-                                    <textarea class="form-control"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label> Avatar</label>
-                                    <div class="image-upload">
-                                        <input type="file">
-                                        <div class="image-uploads">
-                                            <img src="../assets/img/icons/upload.svg" alt="img">
-                                            <h4>Drag and drop a file to upload</h4>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label> Avatar</label>
+                                        <div class="image-upload">
+                                            <input type="file" name="logo_f">
+                                            <div class="image-uploads">
+                                                <img src="../assets/img/icons/upload.svg" alt="img">
+                                                <h4>Drag and drop a file to upload</h4>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <a href="javascript:void(0);" class="btn btn-submit me-2">Submit</a>
-                                <a href="javascript:void(0);" class="btn btn-cancel">Cancel</a>
+                                <div class="col-lg-12">
+                                    <button href="javascript:void(0);" type="submit" name="add" class="btn btn-submit me-2">Submit</button>
+                                    <a href="supplierlist.php" class="btn btn-cancel">Cancel</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                </form>
 
             </div>
         </div>
