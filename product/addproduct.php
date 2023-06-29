@@ -248,8 +248,8 @@
                                 <li><a href="addproduct.php" class="active">Add Product</a></li>
                                 <li><a href="../categories/categorylist.php">Category List</a></li>
                                 <li><a href="../categories/addcategory.php">Add Category</a></li>
-                                
-                                
+
+
                             </ul>
                         </li>
                         <li class="submenu">
@@ -272,7 +272,7 @@
                                 <li><a href="importpurchase.html">Import Purchase</a></li>
                             </ul>
                         </li>
-                       <!-- <li class="submenu">
+                        <!-- <li class="submenu">
                             <a href="javascript:void(0);"><img src="../assets/img/icons/expense1.svg" alt="img"><span>
                                     Expense</span> <span class="menu-arrow"></span></a>
                             <ul>
@@ -318,10 +318,10 @@
                                 <li><a href="../fournisseurs/addsupplier.php">Add Supplier </a></li>
                                 <li><a href="userlist.php">User List</a></li>
                                 <li><a href="adduser.php">Add User</a></li>
-                                
+
                             </ul>
                         </li>
-                      <!--  <li class="submenu">
+                        <!--  <li class="submenu">
                             <a href="javascript:void(0);"><img src="../assets/img/icons/places.svg" alt="img"><span>
                                     Places</span> <span class="menu-arrow"></span></a>
                             <ul>
@@ -484,34 +484,32 @@
                                         <label>Category</label>
                                         <select class="select" type="text" id="category" name="category" required="required">
                                             <option></option>
-                                            <?php 
-                                            $sname = "localhost";// mysql server name
+                                            <?php
+                                            $sname = "localhost"; // mysql server name
                                             $uname = "root"; // user name
                                             $password = ""; // password
                                             $db_name = "stock_analyser"; // database name
-                                            
-                                            $conn = mysqli_connect($sname, $uname, $password, $db_name);// connect to the database
+
+                                            $conn = mysqli_connect($sname, $uname, $password, $db_name); // connect to the database
                                             // if($conn==True){
                                             //     echo "GOOD";
                                             // } else{
                                             //     echo "NOT_GOOD"; 
                                             // }
-                        
-                                            $sql_get= "SELECT * FROM categories"; // sql script
-                                            $report = mysqli_query($conn,$sql_get); // inserting sql script in mysql server
-                                            if($report == TRUE){
-                                            
+
+                                            $sql_get = "SELECT * FROM categories"; // sql script
+                                            $report = mysqli_query($conn, $sql_get); // inserting sql script in mysql server
+                                            if ($report == TRUE) {
+
                                                 // creating a table to insert all the data gotten from the table product_list
-                                                while($row=mysqli_fetch_array($report))
-                                                {
-                                                   echo" <option>
-                                                  " .$row['name_category']."
+                                                while ($row = mysqli_fetch_array($report)) {
+                                                    echo " <option>
+                                                  " . $row['name_category'] . "
                                                    </option>";
                                                 }
-                                                
-                                            } 
+                                            }
                                             mysqli_close($conn);
-                                            
+
                                             ?>
                                         </select>
                                     </div>
@@ -607,7 +605,7 @@
                                         <label> Upload Product Image</label>
                                         <div>
                                             <input type="file" id="product_image" name="product_image" accept=".jpg, .jpeg, .png">
-                                            
+
                                         </div>
                                     </div>
                                 </div>

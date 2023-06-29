@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <meta name="description" content="POS - Bootstrap Admin Template">
-    <meta name="keywords"
-        content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
+    <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
     <title>Dreams Pos admin template</title>
@@ -76,8 +75,7 @@
 
 
                 <li class="nav-item dropdown has-arrow flag-nav">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);"
-                        role="button">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);" role="button">
                         <img src="../assets/img/flags/us1.png" alt="" height="20">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
@@ -99,8 +97,7 @@
 
                 <li class="nav-item dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-                        <img src="../assets/img/icons/notification-bing.svg" alt="img"> <span
-                            class="badge rounded-pill">4</span>
+                        <img src="../assets/img/icons/notification-bing.svg" alt="img"> <span class="badge rounded-pill">4</span>
                     </a>
                     <div class="dropdown-menu notifications">
                         <div class="topnav-dropdown-header">
@@ -149,9 +146,7 @@
                                             </span>
                                             <div class="media-body flex-grow-1">
                                                 <p class="noti-details"><span class="noti-title">Misty Tison</span>
-                                                    added <span class="noti-title">Domenic Houston</span> and <span
-                                                        class="noti-title">Claire Mapes</span> to project <span
-                                                        class="noti-title">Doctor available module</span></p>
+                                                    added <span class="noti-title">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
                                                 <p class="noti-time"><span class="notification-time">8 mins ago</span>
                                                 </p>
                                             </div>
@@ -216,11 +211,9 @@
                             <hr class="m-0">
                             <a class="dropdown-item" href="profile.html"> <i class="me-2" data-feather="user"></i> My
                                 Profile</a>
-                            <a class="dropdown-item" href="generalsettings.html"><i class="me-2"
-                                    data-feather="settings"></i>Settings</a>
+                            <a class="dropdown-item" href="generalsettings.html"><i class="me-2" data-feather="settings"></i>Settings</a>
                             <hr class="m-0">
-                            <a class="dropdown-item logout pb-0" href="signin.html"><img
-                                    src="../assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
+                            <a class="dropdown-item logout pb-0" href="signin.html"><img src="../assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
                         </div>
                     </div>
                 </li>
@@ -228,8 +221,7 @@
 
 
             <div class="dropdown mobile-user-menu">
-                <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="profile.html">My Profile</a>
                     <a class="dropdown-item" href="generalsettings.html">Settings</a>
@@ -240,48 +232,48 @@
         </div>
 
 
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-inner slimscroll">
-            <div id="sidebar-menu" class="sidebar-menu">
-                <ul>
-                    <li>
-                        <a href="index.html"><img src="../assets/img/icons/dashboard.svg" alt="img"><span>
-                                Dashboard</span> </a>
-                    </li>
-                    <li class="submenu">
-                        <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span>
-                                Product</span> <span class="menu-arrow"></span></a>
-                        <ul>
-                            <li><a href="../poduct/productlist.php">Product List</a></li>
-                            <li><a href="../product/addproduct.php">Add Product</a></li>
-                            <li><a href="../categories/categorylist.php">Category List</a></li>
-                            <li><a href="../categories/addcategory.php">Add Category</a></li>
-                            
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="javascript:void(0);">
-                            <ig src="../assets/img/icons/sales1.svg" alt="img"><span>
-                                    Sales</span> <span class="menu-arrow"></span>
-                        </a>
-                        <ul>
-                            <li><a href="saleslist.html">Sales List</a></li>
-                            <li><a href="pos.html">OS</a></li>
-                            <li><a href="pos.html">New Sales</a></li>
-                            <li><a href="salesreturnlists.html">Sales Return List</a></li>
-                            <li><a href="createsalesreturns.html">New Sales Return</a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="javascript:void(0);"><img src="../assets/img/icons/purchase1.svg" alt="img"><span>
-                                Purchase</span> <span class="menu-arrow"></span></a>
-                        <ul>
-                            <li><a href="purchaselist.html">Purchase List</a></li>
-                            <li><a href="addpurchase.html">Add Purchase</a></li>
-                            <li><a href="importpurchase.html">Import Prchase</a></li>
-                        </ul>
-                    </li>
-                    <!--
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li>
+                            <a href="index.html"><img src="../assets/img/icons/dashboard.svg" alt="img"><span>
+                                    Dashboard</span> </a>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span>
+                                    Product</span> <span class="menu-arrow"></span></a>
+                            <ul>
+                                <li><a href="../poduct/productlist.php">Product List</a></li>
+                                <li><a href="../product/addproduct.php">Add Product</a></li>
+                                <li><a href="../categories/categorylist.php">Category List</a></li>
+                                <li><a href="../categories/addcategory.php">Add Category</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <ig src="../assets/img/icons/sales1.svg" alt="img"><span>
+                                        Sales</span> <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="saleslist.html">Sales List</a></li>
+                                <li><a href="pos.html">OS</a></li>
+                                <li><a href="pos.html">New Sales</a></li>
+                                <li><a href="salesreturnlists.html">Sales Return List</a></li>
+                                <li><a href="createsalesreturns.html">New Sales Return</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);"><img src="../assets/img/icons/purchase1.svg" alt="img"><span>
+                                    Purchase</span> <span class="menu-arrow"></span></a>
+                            <ul>
+                                <li><a href="purchaselist.html">Purchase List</a></li>
+                                <li><a href="addpurchase.html">Add Purchase</a></li>
+                                <li><a href="importpurchase.html">Import Prchase</a></li>
+                            </ul>
+                        </li>
+                        <!--
                     <li class="submenu">
                         <a href="javascript:void(0);"><img src="../assets/img/icons/expense1.svg" alt="img"><span>
                                 Expense</span> <span class="menu-arrow"></span></a>
@@ -320,20 +312,20 @@
                         </ul>
                     </li>
                     -->
-                    <li class="submenu">
-                        <a href="javascript:void(0);"><img src="../assets/img/icons/users1.svg" alt="img"><span>
-                                People</span> <span class="menu-arrow"></span></a>
-                        <ul>
-                            <li><a href="../clients/customerlist.php">Customer List</a></li>
-                            <li><a href="../clients/addcustomer.php">Add Customer </a></li>
-                            <li><a hre="supplierlist.php" class="active">Supplier List</a></li>
-                            <li><a href="addsupplier.php">Add Supplier </a></li>
-                            <li><a href="userlist.php">User List</a></li>
-                            <li><a href="adduser.php">Add User</a></li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);"><img src="../assets/img/icons/users1.svg" alt="img"><span>
+                                    People</span> <span class="menu-arrow"></span></a>
+                            <ul>
+                                <li><a href="../clients/customerlist.php">Customer List</a></li>
+                                <li><a href="../clients/addcustomer.php">Add Customer </a></li>
+                                <li><a hre="supplierlist.php" class="active">Supplier List</a></li>
+                                <li><a href="addsupplier.php">Add Supplier </a></li>
+                                <li><a href="userlist.php">User List</a></li>
+                                <li><a href="adduser.php">Add User</a></li>
 
-                        </ul>
-                    </li>
-                    <!--
+                            </ul>
+                        </li>
+                        <!--
                     <li class="submenu">
                         <a href="javascript:void(0);"><img src="../assets/img/icons/places.svg" alt="img"><span>
                                 Places</span> <span class="menuarrow"></span></a>
@@ -444,7 +436,7 @@
                     </ul>
                 </li>
                 -->
-                <li class="submenu">
+                        <li class="submenu">
                             <a href="javascript:void(0);"><img src="../assets/img/icons/time.svg" alt="img"><span>
                                     Report</span> <span class="menu-arrow"></span></a>
                             <ul>
@@ -482,129 +474,123 @@
             </div>
         </div>
 
-    <div class="page-wrapper">
-        <div class="content">
-            <div class="page-header">
-                <div class="page-title">
-                    <h4>Supplier List</h4>
-                    <h6>Manage your Supplier</h6>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h4>Supplier List</h4>
+                        <h6>Manage your Supplier</h6>
                     </div>
                     <div class="page-btn">
 
-                     <!-- add supplilocaer page -->
-                        <a href="addsupplier.php" class="btn btn-added"><img src="../assets/img/icons/lus.svg"
-                                alt="img" class="me-1">Add Supplier</a>
-                    </div>
-            </div>
 
-            <div class="card">
-                <div class="card-body">
-                    <div class="table-top">
-                        <div class="search-set">
-                            <div class="search-path">
-                                <a class="btn btn-filter" id="filter_search">
-                                    <img src="../assets/img/icons/filter.svg" alt="img">
-                                    <span><img src="../assets/img/icons/closes.svg" alt="img"></span>
-                                </a>
+                        <!-- add supplilocaer page -->
+                        <a href="addsupplier.php" class="btn btn-added"><img src="../assets/img/icons/lus.svg" alt="img" class="me-1">Add Supplier</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-top">
+                            <div class="search-set">
+                                <div class="search-path">
+                                    <a class="btn btn-filter" id="filter_search">
+                                        <img src="../assets/img/icons/filter.svg" alt="img">
+                                        <span><img src="../assets/img/icons/closes.svg" alt="img"></span>
+                                    </a>
+                                </div>
+                                <div class="search-iput">
+                                    <a class="btn btn-searchset"><img src="../assets/img/icons/search-white.svg" alt="img"></a>
+                                </div>
                             </div>
-                            <div class="search-iput">
-                                <a class="btn btn-searchset"><img src="../assets/img/icons/search-white.svg"
-                                        alt="img"></a>
+                            <div class="wordset">
+                                <ul>
+                                    <li>
+                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="pdf"><img src="../assets/img/icons/pdf.svg" alt="img"></a>
+                                    </li>
+                                    <li>
+                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="excel"><img src="../assets/img/icons/excel.svg" alt="img"></a>
+                                    </li>
+                                    <li>
+                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="print"><img src="../assets/img/icons/printer.svg" alt="img"></a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="wordset">
-                            <ul>
-                                <li>
-                                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="pdf"><img
-                                            src="../assets/img/icons/pdf.svg" alt="img"></a>
-                                </li>
-                                <li>
-                                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="excel"><img
-                                            src="../assets/img/icons/excel.svg" alt="img"></a>
-                                </li>
-                                <li>
-                                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="print"><img
-                                            src="../assets/img/icons/printer.svg" alt="img"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <div class="card" id="filter_inputs">
-                        <div class="card-body pb-0">
-                            <div class="row">
-                                <div class="col-lg-2 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Enter Supplier Code">
+                        <div class="card" id="filter_inputs">
+                            <div class="card-body pb-0">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Enter Supplier Code">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-2 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Enter Supplier">
+                                    <div class="col-lg-2 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Enter Supplier">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-2 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Enter Phone">
+                                    <div class="col-lg-2 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Enter Phone">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-2 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Enter Email">
+                                    <div class="col-lg-2 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Enter Email">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-1 col-sm-6 col-12 ms-auto">
-                                    <div class="form-group">
-                                        <a class="btn btn-filters ms-auto"><img
-                                                src="../asets/img/icons/search-whites.svg" alt="img"></a>
+                                    <div class="col-lg-1 col-sm-6 col-12 ms-auto">
+                                        <div class="form-group">
+                                            <a class="btn btn-filters ms-auto"><img src="../asets/img/icons/search-whites.svg" alt="img"></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="table-responsive">
-                        <able class="table datanew">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <abel class="checkboxs">
-                                            <iput type="checkbox" id="select-all">
-                                                <span class="checkmarks"></span>
-                                                </label>
-                                    </th>
-                                    <th>Supplier Name</th>
-                                    <th>code</th>
-                                    <th>Phone</th>
-                                    <th>email</th>
-                                    <th>Country</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            $sname = "localhost";// mysql server name
-                    $uname = "root"; // user name
-                    $password = ""; // password
-                    $db_name = "stock_analyser"; // database name
-                    
-                    $conn = mysqli_connect($sname, $uname, $password, $db_name);// connect to the database
-                    // if($conn==True){
-                    //     echo "GOOD";
-                    // } else{
-                    //     echo "NOT_GOOD"; 
-                    // }
+                        <div class="table-responsive">
+                            <able class="table datanew">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <abel class="checkboxs">
+                                                <iput type="checkbox" id="select-all">
+                                                    <span class="checkmarks"></span>
+                                                    </label>
+                                        </th>
+                                        <th>Supplier Name</th>
+                                        <th>code</th>
+                                        <th>Phone</th>
+                                        <th>email</th>
+                                        <th>Country</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $sname = "localhost"; // mysql server name
+                                    $uname = "root"; // user name
+                                    $password = ""; // password
+                                    $db_name = "stock_analyser"; // database name
 
-                    $sql_get= "SELECT * FROM supplier"; // sql script
-                    $report = mysqli_query($conn,$sql_get); // inserting sql script in mysql server
-                    if($report == TRUE){
-                    
-                        // creating a table to insert all the data gotten from the table supplier
-                        while($row=mysqli_fetch_array($report))
-                        {
-                            
-                            echo "<tr><td>";
-                            echo"<label class='checkboxs'>
+                                    $conn = mysqli_connect($sname, $uname, $password, $db_name); // connect to the database
+                                    // if($conn==True){
+                                    //     echo "GOOD";
+                                    // } else{
+                                    //     echo "NOT_GOOD"; 
+                                    // }
+
+                                    $sql_get = "SELECT * FROM supplier"; // sql script
+                                    $report = mysqli_query($conn, $sql_get); // inserting sql script in mysql server
+                                    if ($report == TRUE) {
+
+                                        // creating a table to insert all the data gotten from the table supplier
+                                        while ($row = mysqli_fetch_array($report)) {
+
+                                            echo "<tr><td>";
+                                            echo "<label class='checkboxs'>
                                                 <input type='checkbox'>
                                                 <span class='checkmarks'></span>
                                             </label>
@@ -612,80 +598,79 @@
                                         <td class='productimgname'>
                                             <a href='javascript:void(0);' class='product-img'>
                                                 <img src='";
-                            echo $row['avatar_supplier']; 
-                            echo"' alt='product'>
+                                            echo $row['avatar_supplier'];
+                                            echo "' alt='product'>
                                             </a>
                                             <a href='javascript:void(0);'>";
-                            echo$row['name_supplier'];
-                            echo"</a>
+                                            echo $row['name_supplier'];
+                                            echo "</a>
                                         </td>";
-                            echo "</td><td>";					
-                            echo$row['email_supplier'];
-                            echo "</td><td>";
-                            echo$row['phone_supplier'];
-                            echo "</td><td>";
-                            echo$row['country_supplier'];
-                            echo "</td><td>";
-                            echo$row['city_supplier'];
-                            echo "</td><td>";
-                            echo$row['address_supplier'];
-                            echo "</td><td>";					
-                            echo$row['description_supplier'];
-                            echo "</td><td>";
-                            echo "<a class='me-3' href='editsupplier.php?
-                            id=".$row['id']."&
-                            avatar_supplier=".$row['avatar_supplier']."&
-                            name_supplier=".$row['name_supplier']."&
-                            email_supplier=".$row['email_supplier']."&
-                            phone_supplier=".$row['phone_supplier']."&
-                            country_supplier=".$row['country_supplier']."&
-                            city_supplier=".$row['city_supplier']."&
-                            address_supplier=".$row['address_supplier']."&
-                            description_supplier=".$row['description_supplier']."''>
+                                            echo "</td><td>";
+                                            echo $row['email_supplier'];
+                                            echo "</td><td>";
+                                            echo $row['phone_supplier'];
+                                            echo "</td><td>";
+                                            echo $row['country_supplier'];
+                                            echo "</td><td>";
+                                            echo $row['city_supplier'];
+                                            echo "</td><td>";
+                                            echo $row['address_supplier'];
+                                            echo "</td><td>";
+                                            echo $row['description_supplier'];
+                                            echo "</td><td>";
+                                            echo "<a class='me-3' href='editsupplier.php?
+                            id=" . $row['id'] . "&
+                            avatar_supplier=" . $row['avatar_supplier'] . "&
+                            name_supplier=" . $row['name_supplier'] . "&
+                            email_supplier=" . $row['email_supplier'] . "&
+                            phone_supplier=" . $row['phone_supplier'] . "&
+                            country_supplier=" . $row['country_supplier'] . "&
+                            city_supplier=" . $row['city_supplier'] . "&
+                            address_supplier=" . $row['address_supplier'] . "&
+                            description_supplier=" . $row['description_supplier'] . "''>
                              <img src='";
-                           // echo "../assets/img/icons/eye.svg";
-                           // echo"' alt='img'>
-                           // </a>
-                           // <a class='me-3' href='editsupplier.php?
-                           // id=".$row['id']."&
-                           // avatar_supplier=".$row['avatar_supplier']."&
-                           // name_supplier=".$row['name_supplier']."&
-                            //email_supplier=".$row['email_supplier']."&
-                            //phone_supplier=".$row['phone_supplier']."&
-                            //country_supplier=".$row['country_supplier']."&
-                            //city_supplier=".$row['city_supplier']."&
-                            //address_supplier=".$row['address_supplier']."&
-                            //description_supplier=".$row['description_supplier']."''>
-                            //    <img src='";
-                            //echo "../assets/img/icons/edit.svg";
-                            echo"' alt='img'>
+                                            // echo "../assets/img/icons/eye.svg";
+                                            // echo"' alt='img'>
+                                            // </a>
+                                            // <a class='me-3' href='editsupplier.php?
+                                            // id=".$row['id']."&
+                                            // avatar_supplier=".$row['avatar_supplier']."&
+                                            // name_supplier=".$row['name_supplier']."&
+                                            //email_supplier=".$row['email_supplier']."&
+                                            //phone_supplier=".$row['phone_supplier']."&
+                                            //country_supplier=".$row['country_supplier']."&
+                                            //city_supplier=".$row['city_supplier']."&
+                                            //address_supplier=".$row['address_supplier']."&
+                                            //description_supplier=".$row['description_supplier']."''>
+                                            //    <img src='";
+                                            //echo "../assets/img/icons/edit.svg";
+                                            echo "' alt='img'>
                             </a>
                             <a class='confirm-text' href='delete_supplier.php?
-                            id=".$row['id']."&
-                            avatar_supplier=".$row['avatar_supplier']."&
-                            name_supplier=".$row['name_supplier']."&
-                            email_supplier=".$row['email_supplier']."&
-                            phone_supplier=".$row['phone_supplier']."&
-                            country_supplier=".$row['country_supplier']."&
-                            city_supplier=".$row['city_supplier']."&
-                            address_supplier=".$row['address_supplier']."&
-                            description_supplier=".$row['description_supplier']."''>
+                            id=" . $row['id'] . "&
+                            avatar_supplier=" . $row['avatar_supplier'] . "&
+                            name_supplier=" . $row['name_supplier'] . "&
+                            email_supplier=" . $row['email_supplier'] . "&
+                            phone_supplier=" . $row['phone_supplier'] . "&
+                            country_supplier=" . $row['country_supplier'] . "&
+                            city_supplier=" . $row['city_supplier'] . "&
+                            address_supplier=" . $row['address_supplier'] . "&
+                            description_supplier=" . $row['description_supplier'] . "''>
                             
                                 <img src='";
-                            echo"../assets/img/icons/delete.svg";
-                            echo "' alt='img'>
+                                            echo "../assets/img/icons/delete.svg";
+                                            echo "' alt='img'>
                             </a>
                         </td>
                             
                             
                             </tr>";
-                        }
-                        
-                    } 
-                    mysqli_close($conn);
-                    
-                    ?>
-<!--
+                                        }
+                                    }
+                                    mysqli_close($conn);
+
+                                    ?>
+                                    <!--
                                 <tr>
                                     <td>
                                         <label class="checkboxs">
@@ -1050,14 +1035,14 @@
                                         </a>
                                     </td>
                                 </tr>-->
-                            </tbody> 
-                            </table>
+                                </tbody>
+                                </table>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
     </div>
 
 
@@ -1066,8 +1051,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Show Payments</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">×</span></button>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="table-responsive">
@@ -1091,8 +1075,7 @@
                                         <a class="me-2" href="javascript:void(0);">
                                             <img src="../assets/img/icons/printer.svg" alt="img">
                                         </a>
-                                        <a class="me-2" href="javascript:void(0);" data-bs-target="#editpayment"
-                                            data-bs-toggle="modal" data-bs-dismiss="modal">
+                                        <a class="me-2" href="javascript:void(0);" data-bs-target="#editpayment" data-bs-toggle="modal" data-bs-dismiss="modal">
                                             <img src="../assets/img/icons/edit.svg" alt="img">
                                         </a>
                                         <a class="me-2 confirm-text" href="javascript:void(0);">
@@ -1114,8 +1097,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Create Payment</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">×</span></button>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -1180,8 +1162,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Edit Payment</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">×</span></button>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
