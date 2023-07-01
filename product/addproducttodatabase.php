@@ -68,28 +68,27 @@ $user = "root";
 $pass = "";
 $bd = "stock_analyser";
 
+
+
 $product_image = $file_path;
 $product_name = $_POST['product_name'];
 $sku = $_POST['sku'];
-$category = $_POST['category'];
-$brand = $_POST['brand'];
+$category = $_POST['id_cat'];
+$fournisseur = $_POST['id_f'];
 $price = $_POST['price'];
-$unit = $_POST['unit'];
 $quantity = $_POST['quantity'];
-$created_by = 'MILLENA';
-$sub_category = $_POST['sub_category'];
-$minimum_quantity = $_POST['minimum_quantity'];
+$created_by = $_POST['id_user'];;
 $descriptions = $_POST['descriptions'];
 $tax = $_POST['tax'];
-$discount_type = $_POST['discount_type'];
+$date = date('Y-m-d');
 $statuss = $_POST['statuss'];
 
 
 
 $conn = mysqli_connect($server, $user, $pass, $bd);
 
-$sql = "INSERT INTO product_list(product_name,sku,category,brand,price,unit,quantity,created_by,product_image,sub_category,minimum_quantity,descriptions,tax,discount_type,statuss) 
-        VALUES ('$product_name','$sku','$category','$brand','$price','$unit','$quantity','$created_by','$product_image','$sub_category','$minimum_quantity','$descriptions','$tax','$discount_type','$statuss')";
+$sql = "INSERT INTO product_list(product_name,sku,id_categorie,price,quantity,id_user,product_image,descriptions,tax,status,id_fournisseur,date_entree) 
+        VALUES ('$product_name','$sku','$category','$price','$quantity','$created_by','$product_image','$descriptions','$tax','$statuss','$fournisseur',NOW())";
 
 mysqli_query($conn, $sql);
 

@@ -36,17 +36,16 @@
      <div class="main-wrapper">
          <?php include('../components/header2.php') ?>
          <?php include('../components/sidebar2.php') ?>
+
          <div class="page-wrapper">
              <div class="content">
                  <div class="page-header">
                      <div class="page-title">
-                         <h4>PURCHASE LIST</h4>
-                         <h6>Manage your purchases</h6>
+                         <h4>Sales Return List</h4>
+                         <h6>Manage your Returns</h6>
                      </div>
                      <div class="page-btn">
-                         <a href="addpurchase.html" class="btn btn-added">
-                             <img src="../assets/img/icons/plus.svg" alt="img">Add New Purchases
-                         </a>
+                         <a href="createsalesreturn.html" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img" class="me-2">Add New Sales Return</a>
                      </div>
                  </div>
 
@@ -82,25 +81,25 @@
                          <div class="card" id="filter_inputs">
                              <div class="card-body pb-0">
                                  <div class="row">
-                                     <div class="col-lg col-sm-6 col-12">
+                                     <div class="col-lg-2 col-sm-6 col-12">
                                          <div class="form-group">
                                              <input type="text" class="datetimepicker cal-icon" placeholder="Choose Date">
                                          </div>
                                      </div>
-                                     <div class="col-lg col-sm-6 col-12">
+                                     <div class="col-lg-2 col-sm-6 col-12">
                                          <div class="form-group">
                                              <input type="text" placeholder="Enter Reference">
                                          </div>
                                      </div>
-                                     <div class="col-lg col-sm-6 col-12">
+                                     <div class="col-lg-2 col-sm-6 col-12">
                                          <div class="form-group">
                                              <select class="select">
-                                                 <option>Choose Supplier</option>
-                                                 <option>Supplier</option>
+                                                 <option>Choose Customer</option>
+                                                 <option>Customer</option>
                                              </select>
                                          </div>
                                      </div>
-                                     <div class="col-lg col-sm-6 col-12">
+                                     <div class="col-lg-2 col-sm-6 col-12">
                                          <div class="form-group">
                                              <select class="select">
                                                  <option>Choose Status</option>
@@ -108,7 +107,7 @@
                                              </select>
                                          </div>
                                      </div>
-                                     <div class="col-lg col-sm-6 col-12">
+                                     <div class="col-lg-2 col-sm-6 col-12">
                                          <div class="form-group">
                                              <select class="select">
                                                  <option>Choose Payment Status</option>
@@ -116,7 +115,7 @@
                                              </select>
                                          </div>
                                      </div>
-                                     <div class="col-lg-1 col-sm-6 col-12">
+                                     <div class="col-lg-2 col-sm-6 col-12">
                                          <div class="form-group">
                                              <a class="btn btn-filters ms-auto"><img src="../assets/img/icons/search-whites.svg" alt="img"></a>
                                          </div>
@@ -135,13 +134,13 @@
                                                  <span class="checkmarks"></span>
                                              </label>
                                          </th>
-                                         <th>Supplier Name</th>
-                                         <th>Reference</th>
+                                         <th>Product Name</th>
                                          <th>Date</th>
+                                         <th>Customer</th>
                                          <th>Status</th>
-                                         <th>Grand Total</th>
-                                         <th>Paid</th>
-                                         <th>Due</th>
+                                         <th>Grand Total ($)</th>
+                                         <th>Paid ($)</th>
+                                         <th>Due ($)</th>
                                          <th>Payment Status</th>
                                          <th>Action</th>
                                      </tr>
@@ -154,16 +153,79 @@
                                                  <span class="checkmarks"></span>
                                              </label>
                                          </td>
-                                         <td class="text-bolds">Apex Computers</td>
-                                         <td>PT001</td>
+                                         <td class="productimgname">
+                                             <a href="javascript:void(0);" class="product-img">
+                                                 <img src="../assets/img/product/product1.jpg" alt="product">
+                                             </a>
+                                             <a href="javascript:void(0);">Macbook pro</a>
+                                         </td>
                                          <td>19 Nov 2022</td>
+                                         <td>Thomas</td>
                                          <td><span class="badges bg-lightgreen">Received</span></td>
                                          <td>550</td>
                                          <td>120</td>
                                          <td>550</td>
                                          <td><span class="badges bg-lightgreen">Paid</span></td>
                                          <td>
-                                             <a class="me-3" href="editpurchase.php">
+                                             <a class="me-3" href="editsalesreturn.html">
+                                                 <img src="../assets/img/icons/edit.svg" alt="img">
+                                             </a>
+                                             <a class="me-3 confirm-text" href="javascript:void(0);">
+                                                 <img src="../assets/img/icons/delete.svg" alt="img">
+                                             </a>
+                                         </td>
+                                     </tr>
+                                     <tr>
+                                         <td>
+                                             <label class="checkboxs">
+                                                 <input type="checkbox">
+                                                 <span class="checkmarks"></span>
+                                             </label>
+                                         </td>
+                                         <td class="productimgname">
+                                             <a href="javascript:void(0);" class="product-img">
+                                                 <img src="../assets/img/product/product2.jpg" alt="product">
+                                             </a>
+                                             <a href="javascript:void(0);">Orange</a>
+                                         </td>
+                                         <td>19 Nov 2022</td>
+                                         <td>Benjamin</td>
+                                         <td><span class="badges bg-lightred">Pending</span></td>
+                                         <td>550</td>
+                                         <td>120</td>
+                                         <td>550</td>
+                                         <td><span class="badges bg-lightred">Unpaid</span></td>
+                                         <td>
+                                             <a class="me-3" href="editsalesreturn.html">
+                                                 <img src="../assets/img/icons/edit.svg" alt="img">
+                                             </a>
+                                             <a class="me-3 confirm-text" href="javascript:void(0);">
+                                                 <img src="../assets/img/icons/delete.svg" alt="img">
+                                             </a>
+                                         </td>
+                                     </tr>
+                                     <tr>
+                                         <td>
+                                             <label class="checkboxs">
+                                                 <input type="checkbox">
+                                                 <span class="checkmarks"></span>
+                                             </label>
+                                         </td>
+                                         <td class="productimgname">
+                                             <a href="javascript:void(0);" class="product-img">
+                                                 <img src="../assets/img/product/product3.jpg" alt="product">
+                                             </a>
+                                             <a href="javascript:void(0);">Pineapple</a>
+                                         </td>
+                                         <td>19 Nov 2022</td>
+                                         <td>James</td>
+                                         <td><span class="badges bg-lightred">Pending</span></td>
+                                         <td>210</td>
+                                         <td>120</td>
+                                         <td>210</td>
+                                         <td><span class="badges bg-lightred">Unpaid</span></td>
+                                         <td>
+                                             <a class="me-3" href="editsalesreturn.html">
                                                  <img src="../assets/img/icons/edit.svg" alt="img">
                                              </a>
                                              <a class="me-3 confirm-text" href="javascript:void(0);">

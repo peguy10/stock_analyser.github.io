@@ -5,7 +5,7 @@ $server = "localhost";
     $pass = "";
     $bd = "stock_analyser";
     
-    $id = $_GET['id'];
+    $id = $_POST['id'];
     
 
 
