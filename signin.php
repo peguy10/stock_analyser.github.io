@@ -12,8 +12,7 @@ if (isset($_POST['connexion'])) {
     session_start();
     $_SESSION['user_id'] = $utilisateur['id'];
     $_SESSION['username'] = $utilisateur['nom'];
-    header('Location: index.php');
-    exit;
+    header('Location: index.php'); 
   } else {
     echo "Email ou mot de passe incorrect.";
   }

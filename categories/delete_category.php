@@ -12,7 +12,7 @@ $server = "localhost";
     
     $conn = mysqli_connect($server, $user, $pass,$bd);
    
-        $sql = "DELETE FROM categories WHERE id = '$id'";
+        $sql = "DELETE FROM categories WHERE id_cat = '$id'";
         
         mysqli_query($conn, $sql);
     

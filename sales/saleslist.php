@@ -45,7 +45,7 @@
                         <h6>Manage your sales</h6>
                     </div>
                     <div class="page-btn">
-                        <a href="add-sales.html" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img" class="me-1">Add Sales</a>
+                        <a href="add-sales.php" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img" class="me-1">Add Sales</a>
                     </div>
                 </div>
 

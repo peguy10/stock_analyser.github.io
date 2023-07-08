@@ -8,7 +8,7 @@
     <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Dreams Pos admin template</title>
+    <title>STOCK ANALYSER</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
 
@@ -183,7 +183,7 @@
                                             echo "</td>
                             <td>
                                 <a class='me-3' href='editcategory.php?
-                                id=" . $row['id'] . "&
+                                id=" . $row['id_cat'] . "&
                                 image_category=" . $row['image_category'] . "&
                                 name_category=" . $row['name_category'] . "&
                                 code_category=" . $row['code_category'] . "&
@@ -195,7 +195,7 @@
                                             echo "'alt='img'>
                                 </a>
                                 <a class='me-3 confirm-text' href='delete_category.php?
-                                id=" . $row['id'] . "&
+                                id=" . $row['id_cat'] . "&
                                 image_category=" . $row['image_category'] . "&
                                 name_category=" . $row['name_category'] . "&
                                 code_category=" . $row['code_category'] . "&

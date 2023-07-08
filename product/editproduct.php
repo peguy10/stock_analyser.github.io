@@ -1,3 +1,48 @@
+<?php // Connexion à la base de données
+
+
+include('../inc/connect.php');
+if (isset($_GET['sku'])) {
+    $sku = $_GET['sku'];
+    $sql = "SELECT * FROM product_list,categories,supplier,users 
+                                   WHERE product_list.id_fournisseur=supplier.id_f 
+                                   AND product_list.id_categorie=categories.id_cat 
+                                   AND product_list.id_user=users.id 
+                                   AND sku = :sku";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':sku', $sku);
+    $stmt->execute();
+    $product = $stmt->fetch(PDO::FETCH_ASSOC);
+}
+class GET
+{
+    private $pdo;
+
+    public function __construct(PDO $pdo)
+    {
+        $this->pdo = $pdo;
+    }
+
+    // Fonction pour récupérer toutes les Fournisseur
+    public function getAllF()
+    {
+        $stmt = $this->pdo->query('SELECT * FROM supplier');
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    // Fonction pour récupérer toutes les catégories
+    public function getAllC()
+    {
+        $stmt = $this->pdo->query('SELECT * FROM categories');
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+$fournisseur = new GET($pdo);
+$fournisseurs = $fournisseur->getAllF();
+
+$category = new GET($pdo);
+$categories = $category->getAllC();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +53,7 @@
     <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Dreams Pos admin template</title>
+    <title>STOCK ANALYSER</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
 
@@ -53,126 +98,68 @@
                                     <div class="form-group">
 
                                         <label>Product Name</label>
-                                        <input type="text" value="<?php echo $_GET['product_name']; ?>" id="product_name" name="product_name" required="required">
+                                        <input type="text" value="<?php echo $product['product_name']; ?>" id="product_name" name="product_name" required="required">
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Category</label>
-                                        <select class="select" type="text" id="category" name="category" required="required">
-                                            <option><?php echo $_GET['category']; ?></option>
+                                        <select class="select" type="text" id="id_cat" name="id_cat" required="required">
+                                            <option value="<?php echo $product['id_categorie']; ?>"><?php echo $product['name_category']; ?></option>
+                                            <?php foreach ($categories as $category) : ?>
 
-                                            <?php
-                                            $sname = "localhost"; // mysql server name
-                                            $uname = "root"; // user name
-                                            $password = ""; // password
-                                            $db_name = "stock_analyser"; // database name
-
-                                            $conn = mysqli_connect($sname, $uname, $password, $db_name); // connect to the database
-                                            // if($conn==True){
-                                            //     echo "GOOD";
-                                            // } else{
-                                            //     echo "NOT_GOOD"; 
-                                            // }
-
-                                            $sql_get = "SELECT * FROM categories"; // sql script
-                                            $report = mysqli_query($conn, $sql_get); // inserting sql script in mysql server
-                                            if ($report == TRUE) {
-
-                                                // creating a table to insert all the data gotten from the table product_list
-                                                while ($row = mysqli_fetch_array($report)) {
-                                                    echo " <option>
-                                                  " . $row['name_category'] . "
-                                                   </option>";
-                                                }
-                                            }
-                                            mysqli_close($conn);
-
-                                            ?>
+                                                <option value="<?php echo $category['id_cat']?>"><?php echo $category['name_category']?></option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Sub Category</label>
-                                        <select class="select" type="text" id="sub_category" name="sub_category" required="required">
-                                            <option><?php echo $_GET['sub_category']; ?></option>
-                                            <option>option1</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label>Brand</label>
-                                        <select class="select" type="text" id="brand" name="brand" required="required">
-                                            <option><?php echo $_GET['brand']; ?></option>
-                                            <option>option1</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label>Unit</label>
-                                        <select class="select" type="text" id="unit" name="unit" required="required">
-                                            <option><?php echo $_GET['unit']; ?></option>
-                                            <option>Kg</option>
+                                        <label>Supplier</label>
+                                        <select class="select" type="text" id="id_f" name="id_f" required="required">
+                                            <option value="<?php echo $product['id_fournisseur']; ?>"><?php echo $product['name_supplier']; ?></option>
+                                            <?php foreach ($fournisseurs as $fournisseur) : ?>
+
+                                                <option value="<?php echo $fournisseur['id_f']?>"><?php echo $fournisseur['name_supplier']?></option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>SKU</label>
-                                        <input type="text" value="<?php echo $_GET['sku']; ?>" id="sku" name="sku" required="required">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label>Minimum Qty</label>
-                                        <input type="number" value="<?php echo $_GET['minimum_quantity']; ?>" id="minimum_quantity" name="minimum_quantity" required="required">
+                                        <input type="text" readonly value="<?php echo $product['sku']; ?>" id="sku" name="sku" required="required">
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Quantity</label>
-                                        <input type="number" value="<?php echo $_GET['quantity']; ?>" id="quantity" name="quantity" required="required">
+                                        <input type="text" value="<?php echo $product['quantity']; ?>" id="quantity" name="quantity" required="required">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea class="form-control" type="text" id="descriptions" name="descriptions" required="required"><?php echo $_GET['descriptions']; ?></textarea>
+                                        <textarea class="form-control" type="text" id="descriptions" name="descriptions" required="required"><?php echo $product['descriptions']; ?></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Tax(%)</label>
-                                        <select class="select" type="number" id="tax" name="tax" required="required">
-                                            <option><?php echo $_GET['tax']; ?></option>
-                                            <option>2</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label>Discount Type(%)</label>
-                                        <select class="select" type="number" id="discount_type" name="discount_type" required="required">
-                                            <option><?php echo $_GET['discount_type']; ?></option>
-                                            <option>10</option>
-                                            <option>20</option>
-                                        </select>
+                                        <input type="text" id="tax" name="tax" value="<?php echo $product['tax']; ?>" required="required">
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Price</label>
-                                        <input type="number" value="<?php echo $_GET['price']; ?>" id="price" name="price" required="required">
+                                        <input type="text" value="<?php echo $product['price']; ?>" id="price" name="price" required="required">
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label> Status</label>
-                                        <select class="select" type="text" id="statuss" name="statuss" required="required">
-                                            <option><?php echo $_GET['statuss']; ?></option>
+                                        <select class="select" type="text" id="statuss" name="status" required="required">
+                                            <option><?php echo $product['status']; ?></option>
                                             <option>Closed</option>
                                             <option>Open</option>
                                         </select>
@@ -194,11 +181,11 @@
                                             <li>
                                                 <div class="productviews">
                                                     <div class="productviewsimg">
-                                                        <img src="<?php echo $_GET['product_image']; ?>" alt="img">
+                                                        <img src="<?php echo $product['product_image']; ?>" alt="img">
                                                     </div>
                                                     <div class="productviewscontent">
                                                         <div class="productviewsname">
-                                                            <input type="hidden" value="<?php echo $_GET['product_image']; ?>" id="old_product_image" name="old_product_image">
+                                                            <input type="hidden" value="<?php echo $product['product_image']; ?>" id="old_product_image" name="old_product_image">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -209,8 +196,8 @@
 
 
                                 <div class="form-group">
-                                    <label>ID <?php echo $_GET['id']; ?></label>
-                                    <input type="hidden" value="<?php echo $_GET['id']; ?>" id="id" name="id">
+                                    <label>SKU <?php echo $product['sku']; ?></label>
+                                    <input type="hidden" value="<?php echo $product['sku']; ?>" id="id" name="id">
                                 </div>
 
 

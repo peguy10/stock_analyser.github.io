@@ -32,7 +32,7 @@ if(isset($_POST["submit"])) {
             // }else{
             
                 // Check file size
-                if ($fileSize > 500000) //If the file is larger than 500KB
+                if ($fileSize > 1500000) //If the file is larger than 500KB
                 {
                     $file_path = "Sorry, your file is too large.";
                     $uploadOk = 0;
@@ -87,7 +87,7 @@ if(isset($_POST["submit"])) {
         description_category = '$description_category',
         image_category = '$image_category',
         created_by = '$created_by'
-        WHERE id='$id'";
+        WHERE id_cat='$id'";
         
         mysqli_query($conn, $sql);
     
@@ -95,5 +95,3 @@ if(isset($_POST["submit"])) {
     mysqli_close($conn);
 
     header('location:categorylist.php');
-    
-?>

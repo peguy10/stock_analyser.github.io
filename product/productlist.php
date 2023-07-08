@@ -225,10 +225,10 @@ $products = $product->getAll();
                                             <td><?php echo $product['nom']; ?></td>
                                             <td>
 
-                                                <a class="me-3" href="product-details.php?id=<?php echo $product['sku']; ?>">
+                                                <a class="me-3" href="product-details.php?sku=<?php echo $product['sku']; ?>">
                                                     <img src="../assets/img/icons/eye.svg" alt="img">
                                                 </a>
-                                                <a class="me-3" href="editproduct.html">
+                                                <a class="me-3" href="editproduct.php?sku=<?php echo $product['sku']; ?>">
                                                     <img src="../assets/img/icons/edit.svg" alt="img">
                                                 </a>
                                                 <a class="confirm-text" href="javascript:void(0);">

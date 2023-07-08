@@ -32,7 +32,7 @@ $fournisseurs = $fournisseur->getAllF();
     <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Dreams Pos admin template</title>
+    <title>STOCK ANALYSER</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
 
@@ -143,11 +143,8 @@ $fournisseurs = $fournisseur->getAllF();
                                         <td><?php echo $fournisseur['city_supplier']; ?></td>
                                         <td>
                                             <form method="post" action="delete_supplier.php">
-                                                <input type="hidden" name="id" value="<?php echo $fournisseur['id']; ?>">
+                                                <input type="hidden" name="id" value="<?php echo $fournisseur['id_f']; ?>">
 
-                                                <!-- <a class="me-3" data-bs-toggle="modal" data-bs-target="#editmodal<?php echo $category['id_cat']; ?>">
-                                                        <img src="../assets/img/icons/edit.svg" alt="img">
-                                                    </a> -->
                                                 <button type="submit" name="delete" - class="me-3 border-0 bg-transparent confirm-text" href="javascript:void(0);">
                                                     <img src="../assets/img/icons/delete.svg" alt="img">
                                                 </button>

@@ -24,7 +24,7 @@
             // }else{
             
                 // Check file size
-                if ($fileSize > 500000) //If the file is larger than 500KB
+                if ($fileSize > 1500000) //If the file is larger than 500KB
                 {
                     $file_path = "Sorry, your file is too large.";
                     $uploadOk = 0;
@@ -70,22 +70,22 @@
     $phone_supplier = $_POST['phone_supplier'];
     $country_supplier = $_POST['country_supplier'];
     $city_supplier = $_POST['city_supplier'];
-    $address_supplier = $_POST['address_supplier'];
     $description_supplier = $_POST['description_supplier'];
     //$id = $_POST['id'];
 
 
     
     $conn = mysqli_connect($server, $user, $pass,$bd);
-   
-        $sql = "INSERT INTO supplier(name_supplier,email_supplier,phone_supplier,country_supplier,city_supplier,address_supplier,description_supplier,avatar_supplier) 
-        VALUES ('$name_supplier','$email_supplier','$phone_supplier','$country_supplier','$city_supplier','$address_supplier','$description_supplier','$avatar_supplier')";
+   try {
+        $sql = "INSERT INTO supplier(name_supplier,email_supplier,phone_supplier,country_supplier,city_supplier,description_supplier,avatar_supplier) 
+        VALUES ('$name_supplier','$email_supplier','$phone_supplier','$country_supplier','$city_supplier','$description_supplier','$avatar_supplier')";
         
         mysqli_query($conn, $sql);
+   } catch (PDOException $e) {
+    die('error : '.$e->getMessage());
+   }
     
     
     mysqli_close($conn);
 
     header('location:supplierlist.php');
-    
-?>

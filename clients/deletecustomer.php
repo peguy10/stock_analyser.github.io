@@ -5,14 +5,14 @@ $server = "localhost";
     $pass = "";
     $bd = "stock_analyser";
     
-    $id = $_GET['id'];
+    $id = $_POST['id'];
     
 
 
     
     $conn = mysqli_connect($server, $user, $pass,$bd);
    
-        $sql = "DELETE FROM customer WHERE id = '$id'";
+        $sql = "DELETE FROM customer WHERE id_c = '$id'";
         
         mysqli_query($conn, $sql);
     

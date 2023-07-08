@@ -8,7 +8,7 @@
     <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title><i class="ri-stock-fill"></i></title>
+    <title>STOCK ANALYSER</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
 
@@ -28,35 +28,21 @@
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <?php // Connexion à la base de données
+
+
 include('../inc/connect.php');
-class Product
-{
-    private $pdo;
-
-    public function __construct(PDO $pdo)
-    {
-        $this->pdo = $pdo;
-    }
-
-    // Fonction pour récupérer toutes les catégories
-    public function getAll()
-    {
-        $id = $_GET['id'];
-        $sql = 'SELECT * FROM product_list,categories,supplier,users 
+if (isset($_GET['sku'])) {
+    $sku = $_GET['sku'];
+    $sql = "SELECT * FROM product_list,categories,supplier,users 
                                    WHERE product_list.id_fournisseur=supplier.id_f 
                                    AND product_list.id_categorie=categories.id_cat 
-                                   AND product_list.id_user=users.id
-                                   AND product_list.id = :id';
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':id', $id);
-        return $stmt->execute();
-    }
+                                   AND product_list.id_user=users.id 
+                                   AND sku = :sku";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':sku', $sku);
+    $stmt->execute();
+    $product = $stmt->fetch(PDO::FETCH_ASSOC);
 }
-$product = new Product($pdo);
-$products = $product->getAll();
-
-// Affichage des catégories
-
 ?>
 
 <body>
@@ -96,27 +82,19 @@ $products = $product->getAll();
                                         </li>
                                         <li>
                                             <h4>Category</h4>
-                                            <h6><?php echo $product['category']; ?></h6>
+                                            <h6><?php echo $product['name_category']; ?></h6>
                                         </li>
                                         <li>
-                                            <h4>Sub Category</h4>
-                                            <h6><?php echo $product['sub_category']; ?></h6>
+                                            <h4>supplier</h4>
+                                            <h6><?php echo $product['name_supplier']; ?></h6>
                                         </li>
                                         <li>
-                                            <h4>Brand</h4>
-                                            <h6><?php echo $product['brand']; ?></h6>
-                                        </li>
-                                        <li>
-                                            <h4>Unit</h4>
-                                            <h6><?php echo $product['unit']; ?></h6>
+                                            <h4>Created_by</h4>
+                                            <h6><?php echo $product['nom']; ?></h6>
                                         </li>
                                         <li>
                                             <h4>SKU</h4>
                                             <h6><?php echo $product['sku']; ?></h6>
-                                        </li>
-                                        <li>
-                                            <h4>Minimum Qty</h4>
-                                            <h6><?php echo $product['minimum_quantity']; ?></h6>
                                         </li>
                                         <li>
                                             <h4>Quantity</h4>
@@ -127,16 +105,16 @@ $products = $product->getAll();
                                             <h6><?php echo $product['tax']; ?></h6>
                                         </li>
                                         <li>
-                                            <h4>Discount Type(%)</h4>
-                                            <h6><?php echo $product['discount_type']; ?></h6>
-                                        </li>
-                                        <li>
                                             <h4>Price</h4>
                                             <h6><?php echo $product['price']; ?></h6>
                                         </li>
                                         <li>
                                             <h4>Status</h4>
-                                            <h6><?php echo $product['statuss']; ?></h6>
+                                            <h6><?php echo $product['status']; ?></h6>
+                                        </li>
+                                        <li>
+                                            <h4>Date Created</h4>
+                                            <h6><?php echo $product['date_entree']; ?></h6>
                                         </li>
                                         <li>
                                             <h4>Description</h4>

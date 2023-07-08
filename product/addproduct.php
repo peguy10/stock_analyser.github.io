@@ -2,6 +2,9 @@
 include('../inc/connect.php');
 // Classe Categorie pour la gestion des catégories
 session_start();
+if (isset($_SESSION['user_id'])) {
+    $user_id= $_SESSION['user_id'];
+}
 class Categorie
 {
     private $pdo;
@@ -56,7 +59,7 @@ $nbsku = "PRO" . $nbr;
     <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Dreams Pos admin template</title>
+    <title>STOCK ANALYSER</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
 
@@ -94,10 +97,16 @@ $nbsku = "PRO" . $nbr;
                 </div>
 
                 <form name="main" action="addproducttodatabase.php" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="id_user" value="<?php echo $_SESSION['user_id']; ?>">
+
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
+                                <div class="col-lg-12 col-sm-6">
+                                    <div class="form-group">
+                                        <input type="hidden" name="id_user" value="<?php echo $user_id; ?>">
+                                    </div>
+
+                                </div>
                                 <div class="col-lg-3 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Product Name</label>
@@ -129,7 +138,7 @@ $nbsku = "PRO" . $nbr;
                                 <div class="col-lg-3 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>SKU</label>
-                                        <input type="text" class="disabled" id="sku" name="sku" value="<?php echo $nbsku ;?>" required="required" readonly>
+                                        <input type="text" class="disabled" id="sku" name="sku" value="<?php echo $nbsku; ?>" required="required" readonly>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 col-12">

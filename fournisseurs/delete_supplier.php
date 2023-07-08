@@ -12,7 +12,7 @@ $server = "localhost";
     
     $conn = mysqli_connect($server, $user, $pass,$bd);
    
-        $sql = "DELETE FROM supplier WHERE id = '$id'";
+        $sql = "DELETE FROM supplier WHERE id_f = '$id'";
         
         mysqli_query($conn, $sql);
     

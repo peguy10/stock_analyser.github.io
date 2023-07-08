@@ -1,4 +1,28 @@
-﻿﻿<!DOCTYPE html>
+﻿﻿<?php // Connexion à la base de données
+include('../inc/connect.php');
+class Customer
+{
+    private $pdo;
+
+    public function __construct(PDO $pdo)
+    {
+        $this->pdo = $pdo;
+    }
+
+    // Fonction pour récupérer toutes les catégories
+    public function getAllC()
+    {
+        $stmt = $this->pdo->query('SELECT * FROM customer');
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+$client = new Customer($pdo);
+$clients = $client->getAllC();
+
+// Affichage des catégories
+
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,7 +32,7 @@
     <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>SROCK ANALYSER</title>
+    <title>STOCK ANALYSER</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
 
@@ -17,8 +41,6 @@
     <link rel="stylesheet" href="../assets/css/animate.css">
 
     <link rel="stylesheet" href="../assets/plugins/select2/css/select2.min.css">
-
-    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.min.css">
 
     <link rel="stylesheet" href="../assets/css/dataTables.bootstrap4.min.css">
 
@@ -37,99 +59,71 @@
 
         <?php include('../components/header2.php') ?>
         <?php include('../components/sidebar2.php') ?>
-        <div class="page-wrapper">
-            <div class="content">
-                <div class="page-header">
-                    <div class="page-title">
-                        <h4>Customer List</h4>
-                        <h6>Manage your Customers</h6>
-                    </div>
-                    <div class="page-btn">
-                        <a href="addcustomer.php" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img">Add Customer</a>
-                    </div>
+    </div>
+    <div class="page-wrapper">
+        <div class="content">
+            <div class="page-header">
+                <div class="page-title">
+                    <h4>customer List</h4>
+                    <h6>Manage your customer</h6>
                 </div>
+                <div class="page-btn">
+                    <a href="addcustomer.php" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img">Add customer</a>
+                </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-top">
-                            <div class="search-set">
-                                <div class="search-path">
-                                    <a class="btn btn-filter" id="filter_search">
-                                        <img src="../assets/img/icons/filter.svg" alt="img">
-                                        <span><img src="../assets/img/icons/closes.svg" alt="img"></span>
-                                    </a>
-                                </div>
-                                <div class="search-input">
-                                    <a class="btn btn-searchset"><img src="../assets/img/icons/search-white.svg" alt="img"></a>
-                                </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-top">
+                        <div class="search-set">
+                            <div class="search-path">
+                                <a class="btn btn-filter" id="filter_search">
+                                    <img src="../assets/img/icons/filter.svg" alt="img">
+                                    <span><img src="../assets/img/icons/closes.svg" alt="img"></span>
+                                </a>
                             </div>
-                            <div class="wordset">
-                                <ul>
-                                    <li>
-                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="pdf"><img src="../assets/img/icons/pdf.svg" alt="img"></a>
-                                    </li>
-                                    <li>
-                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="excel"><img src="../assets/img/icons/excel.svg" alt="img"></a>
-                                    </li>
-                                    <li>
-                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="print"><img src="../assets/img/icons/printer.svg" alt="img"></a>
-                                    </li>
-                                </ul>
+                            <div class="search-input">
+                                <a class="btn btn-searchset"><img src="../assets/img/icons/search-white.svg" alt="img"></a>
                             </div>
                         </div>
-
-                        <div class="card" id="filter_inputs">
-                            <div class="card-body pb-0">
-                                <div class="row">
-                                    <div class="col-lg-2 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Enter Customer Code">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Enter Customer Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Enter Phone Number">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Enter Email">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-1 col-sm-6 col-12  ms-auto">
-                                        <div class="form-group">
-                                            <a class="btn btn-filters ms-auto"><img src="../assets/img/icons/search-whites.svg" alt="img"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="wordset">
+                            <ul>
+                                <li>
+                                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="pdf"><img src="../assets/img/icons/pdf.svg" alt="img"></a>
+                                </li>
+                                <li>
+                                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="excel"><img src="../assets/img/icons/excel.svg" alt="img"></a>
+                                </li>
+                                <li>
+                                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="print"><img src="../assets/img/icons/printer.svg" alt="img"></a>
+                                </li>
+                            </ul>
                         </div>
+                    </div>
 
-                        <div class="table-responsive">
-                            <table class="table  datanew">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <label class="checkboxs">
-                                                <input type="checkbox" id="select-all">
-                                                <span class="checkmarks"></span>
-                                            </label>
-                                        </th>
-                                        <th>Customer Name</th>
-                                        <th>code</th>
-                                        <th>Customer</th>
-                                        <th>Phone</th>
-                                        <th>email</th>
-                                        <th>Country</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                    <!-- <?php include('searchcustomer.php'); ?> -->
+
+                    <div class="table-responsive">
+                        <table class="table datanew">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <label class="checkboxs">
+                                            <input type="checkbox" id="select-all">
+                                            <span class="checkmarks"></span>
+                                        </label>
+                                    </th>
+                                    <th>customer Name</th>
+                                    <th>Phone</th>
+                                    <th>email</th>
+                                    <th>Country</th>
+                                    <th>ville</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($clients as $client) : ?>
+
                                     <tr>
                                         <td>
                                             <label class="checkboxs">
@@ -137,34 +131,34 @@
                                                 <span class="checkmarks"></span>
                                             </label>
                                         </td>
-                                        <td class="productimgname">
-                                            <a href="javascript:void(0);" class="product-img">
-                                                <img src="../assets/img/customer/customer1.jpg" alt="product">
-                                            </a>
-                                            <a href="javascript:void(0);">Thomas</a>
-                                        </td>
-                                        <td>201</td>
-                                        <td>Thomas</td>
-                                        <td>+12163547758 </td>
-                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1165797e7c7062517469707c617d743f727e7c">[email&#160;protected]</a></td>
-                                        <td>USA</td>
                                         <td>
-                                            <a class="me-3" href="editcustomer.html">
-                                                <img src="../assets/img/icons/edit.svg" alt="img">
-                                            </a>
-                                            <a class="me-3 confirm-text" href="javascript:void(0);">
-                                                <img src="../assets/img/icons/delete.svg" alt="img">
-                                            </a>
+                                            
+                                            <a href="javascript:void(0);"><?php echo $client['name_customer']; ?></a>
+                                        </td>
+                                        <td><?php echo $client['phone_customer']; ?></td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bad0d5d2d4fadfc2dbd7cad6df94d9d5d7">[<?php echo $client['email_customer']; ?>&#160;protected]</a></td>
+                                        <td><?php echo $client['country_customer']; ?></td>
+                                        <td><?php echo $client['city_customer']; ?></td>
+                                        <td>
+                                            <form method="post" action="deletecustomer.php">
+                                                <input type="hidden" name="id" value="<?php echo $client['id_c']; ?>">
+
+                                                <button type="submit" name="delete" - class="me-3 border-0 bg-transparent confirm-text" href="javascript:void(0);">
+                                                    <img src="../assets/img/icons/delete.svg" alt="img">
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                <?php endforeach; ?>
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
             </div>
+
         </div>
+    </div>
     </div>
 
 
@@ -225,7 +219,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-sm-12 col-12">
                             <div class="form-group">
-                                <label>Customer</label>
+                                <label>customer</label>
                                 <div class="input-group">
                                     <input type="text" value="2022-03-07" class="datetimepicker">
                                     <a class="scanner-set input-group-text">
@@ -290,7 +284,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-sm-12 col-12">
                             <div class="form-group">
-                                <label>Customer</label>
+                                <label>customer</label>
                                 <div class="input-group">
                                     <input type="text" value="2022-03-07" class="datetimepicker">
                                     <a class="scanner-set input-group-text">
