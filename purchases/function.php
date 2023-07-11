@@ -9,7 +9,7 @@ if (isset($_POST['submit']) && isset($_POST['sales'])) {
     $dates = date('Y-m-d');
     $sales = $_POST['sales'];
 
-    $sql = "INSERT INTO purchases (product_id,quantity_add,sale_price,sale_date,ref_sale,status_sale,id_client,id_user)
+    $sql = "INSERT INTO sales (product_id,quantity_sale,sale_price,sale_date,ref_sale,status_sale,id_client,id_user)
                 VALUES (:sale, :qty, :price, :dates, :ref, :statuss, :client, :user)";
 
     foreach ($sales as $sale) {

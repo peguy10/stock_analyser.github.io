@@ -27,6 +27,14 @@
 
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+<?php
+include('../inc/connect.php');
+include('function.php');
+
+
+
+
+?>
 
 <body>
     <div id="global-loader">
@@ -131,91 +139,60 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <label class="checkboxs">
-                                                <input type="checkbox">
-                                                <span class="checkmarks"></span>
-                                            </label>
-                                        </td>
-                                        <td>walk-in-customer</td>
-                                        <td>19 Nov 2022</td>
-                                        <td>SL0101</td>
-                                        <td><span class="badges bg-lightgreen">Completed</span></td>
-                                        <td><span class="badges bg-lightgreen">Paid</span></td>
-                                        <td>0.00</td>
-                                        <td>0.00</td>
-                                        <td class="text-red">100.00</td>
-                                        <td>Admin</td>
-                                        <td class="text-center">
-                                            <a class="action-set" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="true">
-                                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="sales-details.html" class="dropdown-item"><img src="../assets/img/icons/eye1.svg" class="me-2" alt="img">Sale Detail</a>
-                                                </li>
-                                                <li>
-                                                    <a href="edit-sales.html" class="dropdown-item"><img src="../assets/img/icons/edit.svg" class="me-2" alt="img">Edit Sale</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showpayment"><img src="../assets/img/icons/dollar-square.svg" class="me-2" alt="img">Show Payments</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createpayment"><img src="../assets/img/icons/plus-circle.svg" class="me-2" alt="img">Create Payment</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0);" class="dropdown-item"><img src="../assets/img/icons/download.svg" class="me-2" alt="img">Download pdf</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0);" class="dropdown-item confirm-text"><img src="../assets/img/icons/delete1.svg" class="me-2" alt="img">Delete Sale</a>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="checkboxs">
-                                                <input type="checkbox">
-                                                <span class="checkmarks"></span>
-                                            </label>
-                                        </td>
-                                        <td>walk-in-customer</td>
-                                        <td>19 Nov 2022</td>
-                                        <td>SL0102</td>
-                                        <td><span class="badges bg-lightgreen">Completed</span></td>
-                                        <td><span class="badges bg-lightgreen">Paid</span></td>
-                                        <td>0.00</td>
-                                        <td>0.00</td>
-                                        <td class="text-red">100.00</td>
-                                        <td>Admin</td>
-                                        <td class="text-center">
-                                            <a class="action-set" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="true">
-                                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="sales-details.html" class="dropdown-item"><img src="../assets/img/icons/eye1.svg" class="me-2" alt="img">Sale Detail</a>
-                                                </li>
-                                                <li>
-                                                    <a href="edit-sales.html" class="dropdown-item"><img src="../assets/img/icons/edit.svg" class="me-2" alt="img">Edit Sale</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showpayment"><img src="../assets/img/icons/dollar-square.svg" class="me-2" alt="img">Show Payments</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createpayment"><img src="../assets/img/icons/plus-circle.svg" class="me-2" alt="img">Create Payment</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0);" class="dropdown-item"><img src="../assets/img/icons/download.svg" class="me-2" alt="img">Download pdf</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0);" class="dropdown-item confirm-text"><img src="../assets/img/icons/delete1.svg" class="me-2" alt="img">Delete Sale</a>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    
+                                    <?php foreach ($sales as $sale) : ?>
+                                        <tr>
+                                            <td>
+                                                <label class="checkboxs">
+                                                    <input type="checkbox">
+                                                    <span class="checkmarks"></span>
+                                                </label>
+                                            </td>
+                                            <td><?php echo $sale['sale_date'] ?></td>
+                                            <td><?php echo $sale['name_customer'] ?></td>
+                                            <td><?php echo $sale['ref_sale'] ?></td>
+                                            <td><span class="badges bg-lightgreen"><?php echo $sale['status_sale'] ?></span></td>
+                                            <td><span class="badges bg-lightgreen">Paid</span></td>
+                                            <td>
+                                                <?php
+                                                $getTotal = getTotal($sale['id_client']);
+                                                foreach ($getTotal as $tot) {
+
+                                                    $total = $total + ($tot['quantity_sale'] * $tot['sale_price']);
+                                                }
+                                                echo $total;
+                                                $total=0;
+                                                ?>
+                                            </td>
+                                            <td><?php echo $total; ?></td>
+                                            <td class="text-red">100.00</td>
+                                            <td><?php echo $sale['nom'] ?></td>
+                                            <td class="text-center">
+                                                <a class="action-set" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="true">
+                                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a href="sales-details.php" class="dropdown-item"><img src="../assets/img/icons/eye1.svg" class="me-2" alt="img">Sale Detail</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="edit-sales.php" class="dropdown-item"><img src="../assets/img/icons/edit.svg" class="me-2" alt="img">Edit Sale</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showpayment"><img src="../assets/img/icons/dollar-square.svg" class="me-2" alt="img">Show Payments</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#createpayment"><img src="../assets/img/icons/plus-circle.svg" class="me-2" alt="img">Create Payment</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item"><img src="../assets/img/icons/download.svg" class="me-2" alt="img">Download pdf</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item confirm-text"><img src="../assets/img/icons/delete1.svg" class="me-2" alt="img">Delete Sale</a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

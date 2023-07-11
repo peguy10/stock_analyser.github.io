@@ -232,8 +232,10 @@ $categories = $categorie->getAllC();
 
                                                         <tr>
                                                             <td>
-                                                                <input type="hidden" name="id_p" id="" value="<?php echo $product['id']; ?>">
-                                                                <input type="checkbox" name="sales[]" value="sale<?php echo $product['id'] ?>" id="sale<?php echo $product['id'] ?>" class="checkbox checkboxs">
+                                                                <label class="checkboxs">
+                                                                    <input type="checkbox" name="sales[]" value="<?php echo $product['id'] ?>">
+                                                                    <span class="checkmarks"></span>
+                                                                </label>
                                                             </td>
                                                             <td class="productimgname">
                                                                 <a class="product-img">
@@ -324,7 +326,7 @@ $categories = $categorie->getAllC();
                                     </div> -->
                                 </div>
                                 <div class="col-lg-12">
-                                    <button href="javascript:void(0);" class="btn btn-submit me-2" type="submit" name="sale">Submit</button>
+                                    <button href="javascript:void(0);" class="btn btn-submit me-2" type="submit" name="submit">Submit</button>
                                     <a href="javascript:void(0);" class="btn btn-cancel">Cancel</a>
                                 </div>
                             </div>
