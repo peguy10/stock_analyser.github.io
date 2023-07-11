@@ -198,21 +198,21 @@
                     <a href="javascript:void(0);"><img src="assets/img/icons/time.svg" alt="img"><span>
                             Report</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="purchaseorderreport.html">Purchase order report</a></li>
-                        <li><a href="inventoryreport.html">Inventory Report</a></li>
-                        <li><a href="salesreport.html">Sales Report</a></li>
-                        <li><a href="invoicereport.html">Invoice Report</a></li>
-                        <li><a href="purchasereport.html">Purchase Report</a></li>
-                        <li><a href="supplierreport.html">Supplier Report</a></li>
-                        <li><a href="customerreport.html">Customer Report</a></li>
+                        <li><a href="report/purchaseorderreport.php">Purchase order report</a></li>
+                        <li><a href="report/inventoryreport.php">Inventory Report</a></li>
+                        <li><a href="report/salesreport.php">Sales Report</a></li>
+                        <li><a href="report/invoicereport.php">Invoice Report</a></li>
+                        <li><a href="report/purchasereport.php">Purchase Report</a></li>
+                        <li><a href="report/supplierreport.php">Supplier Report</a></li>
+                        <li><a href="report/customerreport.php">Customer Report</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
                     <a href="javascript:void(0);"><img src="assets/img/icons/users1.svg" alt="img"><span>
                             Users</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="newuser.html">New User </a></li>
-                        <li><a href="userlist.html">Users List</a></li>
+                        <li><a href="users/newuser.php">New User </a></li>
+                        <li><a href="users/userlist.php">Users List</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
