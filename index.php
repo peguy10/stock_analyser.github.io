@@ -8,12 +8,12 @@ if (isset($_SESSION['username'])) {
 ?>
 
 <body>
-    <!-- loader -->
+    <!-- loader 
     <div id="global-loader">
         <div class="whirly-loader"> </div>
-    </div>
-    <!-- end loader -->
-    <div class="main-wrapper">
+    </div>-->
+    <!-- end loader 
+    <div class="main-wrapper">-->
         <!-- header -->
         <?php include 'components/header.php'; ?>
         <?php include 'components/sidebar.php'; ?>
@@ -43,57 +43,48 @@ if (isset($_SESSION['username'])) {
                         </div>
                         <div class="card-body">
                             <div class="table-responsive dataview">
-                                <table class="table datatable ">
-                                    <thead>
-                                        <tr>
-                                            <th>Sno</th>
-                                            <th>Products</th>
-                                            <th>Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td class="productimgname">
-                                                <a href="productlist.html" class="product-img">
-                                                    <img src="assets/img/product/product22.jpg" alt="product">
-                                                </a>
-                                                <a href="productlist.html">Apple Earpods</a>
-                                            </td>
-                                            <td>$891.2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td class="productimgname">
-                                                <a href="productlist.html" class="product-img">
-                                                    <img src="assets/img/product/product23.jpg" alt="product">
-                                                </a>
-                                                <a href="productlist.html">iPhone 11</a>
-                                            </td>
-                                            <td>$668.51</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td class="productimgname">
-                                                <a href="productlist.html" class="product-img">
-                                                    <img src="assets/img/product/product24.jpg" alt="product">
-                                                </a>
-                                                <a href="productlist.html">samsung</a>
-                                            </td>
-                                            <td>$522.29</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td class="productimgname">
-                                                <a href="productlist.html" class="product-img">
-                                                    <img src="assets/img/product/product6.jpg" alt="product">
-                                                </a>
-                                                <a href="productlist.html">Macbook Pro</a>
-                                            </td>
-                                            <td>$291.01</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <table class="table datatable ">
+    <thead>
+        <tr>
+            <th>Sno</th>
+            <th>Products</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $sname = "localhost"; // mysql server name
+        $uname = "root"; // user name
+        $password = ""; // password
+        $db_name = "stock_analyser"; // database name
+
+        $conn = mysqli_connect($sname, $uname, $password, $db_name); // connect to the database
+
+        $query = "SELECT * FROM product_list ORDER BY date_entree DESC LIMIT 7";
+        $resultat = mysqli_query($conn, $query);
+
+        if (mysqli_num_rows($resultat) > 0) {
+            while ($row = mysqli_fetch_assoc($resultat)) {
+                echo "<tr>";
+                echo "<td>". $row["id"] ."</td>"; 
+                echo "<td class='productimgname'>";
+                echo "   <a href='productlist.php' class='product-img'>";
+                echo "       <img src='". $row["product_image"]. "'  alt='product'>";
+                echo "   </a>";
+                echo "    <a href='productlist.php'>". $row["product_name"] ."</a>";
+                echo "</td>";
+                echo "<td>$". $row["price"] ."</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "Aucun produit trouvé.";
+        }
+
+        // Fermeture de la connexion à la base de données
+        mysqli_close($conn);
+        ?>                                          
+    </tbody>
+</table>
                             </div>
                         </div>
                     </div>
