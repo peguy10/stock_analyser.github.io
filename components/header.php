@@ -104,10 +104,7 @@
                                         <img alt="" src="assets/img/profiles/avatar-06.jpg">
                                     </span>
                                     <div class="media-body flex-grow-1">
-                                        <p class="noti-details"><span class="noti-title">Misty Tison</span> added <span
-                                                class="noti-title">Domenic Houston</span> and <span
-                                                class="noti-title">Claire Mapes</span> to project <span
-                                                class="noti-title">Doctor available module</span></p>
+                                        <p class="noti-details"><span class="noti-title">Misty Tison</span> added <span class="noti-title">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
                                         <p class="noti-time"><span class="notification-time">8 mins ago</span></p>
                                     </div>
                                 </div>
@@ -167,24 +164,21 @@
                         </div>
                     </div>
                     <hr class="m-0">
-                    <a class="dropdown-item" href="profile.html"> <i class="me-2" data-feather="user"></i> My
+                    <a class="dropdown-item" href="users/profile.php"> <i class="me-2" data-feather="user"></i> My
                         Profile</a>
-                    <a class="dropdown-item" href="generalsettings.html"><i class="me-2"
-                            data-feather="settings"></i>Settings</a>
+                    <a class="dropdown-item" href="generalsettings.html"><i class="me-2" data-feather="settings"></i>Settings</a>
                     <hr class="m-0">
-                    <a class="dropdown-item logout pb-0" href="logout.php"><img src="assets/img/icons/log-out.svg"
-                            class="me-2" alt="img">Logout</a>
+                    <a class="dropdown-item logout pb-0" href="logout.php"><img src="assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
                 </div>
             </div>
         </li>
     </ul>
     <div class="dropdown mobile-user-menu">
-        <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-            aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+        <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
         <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="profile.html">My Profile</a>
+            <a class="dropdown-item" href="users/profile.php">My Profile</a>
             <a class="dropdown-item" href="generalsettings.html">Settings</a>
-            <a class="dropdown-item" href="signin.html">Logout</a>
+            <a class="dropdown-item" href="logout.php">Logout</a>
         </div>
     </div>
 </div>
