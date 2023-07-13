@@ -243,10 +243,10 @@ $categories = $categorie->getAllC();
                                                                 </a>
                                                                 <a href="javascript:void(0);"><?php echo $product['product_name']; ?></a>
                                                             </td>
-                                                            <td><input type="number" class="form-control form-control-sm" value="<?php echo $product['quantity'] ?>" name="qty" min="1" max="<?php echo $product['quantity'] ?>"></td>
+                                                            <td><input type="number" class="form-control form-control-sm" value="<?php echo $product['quantity'] ?>" name="qty<?php echo $product['id']; ?>" min="1" max="<?php echo $product['quantity'] ?>"></td>
                                                             <td><?php echo $product['price']; ?></td>
                                                             <td><?php echo $product['tax']; ?>%</td>
-                                                            <td><?php echo $price; ?> <input type="hidden" name="price" id="" value="<?php echo $price ?>"></td>
+                                                            <td><?php echo $price; ?> <input type="hidden" name="price<?php echo $product['id']; ?>" id="" value="<?php echo $price9; ?>"></td>
                                                             <td>
                                                                 <a href="javascript:void(0);" class="delete-set"><img src="../assets/img/icons/delete.svg" alt="svg"></a>
                                                             </td>
@@ -327,7 +327,7 @@ $categories = $categorie->getAllC();
                                 </div>
                                 <div class="col-lg-12">
                                     <button href="javascript:void(0);" class="btn btn-submit me-2" type="submit" name="submit">Submit</button>
-                                    <a href="javascript:void(0);" class="btn btn-cancel">Cancel</a>
+                                    <a href="saleslist.php" class="btn btn-cancel">Cancel</a>
                                 </div>
                             </div>
 

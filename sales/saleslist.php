@@ -8,7 +8,7 @@
     <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Dreams Pos admin template</title>
+    <title>STOCK ANALYSER</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
 
@@ -160,7 +160,7 @@ include('function.php');
                                                     $total = $total + ($tot['quantity_sale'] * $tot['sale_price']);
                                                 }
                                                 echo $total;
-                                                $total=0;
+                                                $total = 0;
                                                 ?>
                                             </td>
                                             <td><?php echo $total; ?></td>
@@ -172,7 +172,7 @@ include('function.php');
                                                 </a>
                                                 <ul class="dropdown-menu">
                                                     <li>
-                                                        <a href="sales-details.php" class="dropdown-item"><img src="../assets/img/icons/eye1.svg" class="me-2" alt="img">Sale Detail</a>
+                                                        <a href="sales-details.php?id=<?php echo $sale['id_client']; ?>" class="dropdown-item"><img src="../assets/img/icons/eye1.svg" class="me-2" alt="img">Sale Detail</a>
                                                     </li>
                                                     <li>
                                                         <a href="edit-sales.php" class="dropdown-item"><img src="../assets/img/icons/edit.svg" class="me-2" alt="img">Edit Sale</a>

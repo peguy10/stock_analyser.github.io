@@ -202,23 +202,25 @@ $categories = $categorie->getAllC();
 
                         </form>
 
-                        <form action="" method="post">
-                            <input type="hidden" name="clt_id" value="<?php if (isset($products)) echo $id_c; ?>">
+                        <form action="" method="POST">
+                            <input type="hidden" name="id_f" value="<?php if (isset($products)) echo $id_f; ?>">
                             <input type="hidden" name="id_user" value="<?php echo $_SESSION['user_id']; ?>">
                             <div class="row">
                                 <div class="table-responsive mb-3">
                                     <table class="table">
                                         <thead>
-                                            <tr>
+                                            <tr align="center">
                                                 <th>#</th>
                                                 <th>Product Name</th>
                                                 <th>QTY</th>
-                                                <th>Price</th>
+                                                <th>New QTY</th>
+                                                <th>Buy Price</th>
                                                 <th>Tax</th>
-                                                <th>unit</th>
+                                                <th>Sale Price</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
+
                                         <tbody>
                                             <?php if (isset($products)) {
                                                 $total = 0;
@@ -231,13 +233,14 @@ $categories = $categorie->getAllC();
                                                         $qty = $product['quantity'];
                                                     ?>
 
-                                                        <tr>
+                                                        <tr align="center">
                                                             <td>
                                                                 <label class="checkboxs">
-                                                                    <input type="checkbox" name="sales[]" value="<?php echo $product['id'] ?>">
+                                                                    <input type="checkbox" name="purchases[]" value="<?php echo $product['id'] ?>">
                                                                     <span class="checkmarks"></span>
                                                                 </label>
                                                             </td>
+
                                                             <td class="productimgname">
                                                                 <a class="product-img">
                                                                     <img src="<?php echo $product['product_image']; ?>" alt="product">
@@ -246,11 +249,14 @@ $categories = $categorie->getAllC();
                                                             </td>
                                                             <td>
                                                                 <span><?php echo $product['quantity'] ?></span>
-                                                                <input type="number" class="form-control form-control-sm" value="" name="qty">
+
+                                                            </td>
+                                                            <td>
+                                                                <input type="number" class="form-control form-control-sm w-50" value="" name="qty<?php echo $product['id']; ?>">
                                                             </td>
                                                             <td><?php echo $product['price']; ?></td>
                                                             <td><?php echo $product['tax']; ?>%</td>
-                                                            <td><?php echo $price; ?> <input type="hidden" name="price" id="" value="<?php echo $price ?>"></td>
+                                                            <td><?php echo $price; ?> <input type="hidden" name="price<?php echo $product['id']; ?>" id="" value="<?php echo $product['price']; ?>"></td>
                                                             <td>
                                                                 <a href="javascript:void(0);" class="delete-set"><img src="../assets/img/icons/delete.svg" alt="svg"></a>
                                                             </td>
@@ -274,13 +280,13 @@ $categories = $categorie->getAllC();
                                 <!-- <div class="col-lg-3 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Order Tax</label>
-                                        <input type="text">
+                                        <input type="text" name="tax_buy">
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Discount</label>
-                                        <input type="text">
+                                        <input type="text" name="discount">
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 col-12">
@@ -288,17 +294,17 @@ $categories = $categorie->getAllC();
                                         <label>Shipping</label>
                                         <input type="text">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-lg-3 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Status</label>
-                                        <select class="select">
+                                        <select class="select" name="status">
                                             <option>Choose Status</option>
-                                            <option>Completed</option>
-                                            <option>Inprogress</option>
+                                            <option value="Completed">Completed</option>
+                                            <option value="Inprogress">Inprogress</option>
                                         </select>
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="row">
                                     <div class="col-lg-6 ">
                                         <!-- <div class="total-order w-100 max-widthauto m-auto mb-4">
@@ -330,8 +336,8 @@ $categories = $categorie->getAllC();
                                     </div> -->
                                 </div>
                                 <div class="col-lg-12">
-                                    <button href="javascript:void(0);" class="btn btn-submit me-2" type="submit" name="submit">Submit</button>
-                                    <a href="javascript:void(0);" class="btn btn-cancel">Cancel</a>
+                                    <button href="javascript:void(0);" class="btn btn-submit me-2" type="submit" name="save">Submit</button>
+                                    <a href="purchaselist.php" class="btn btn-cancel">Cancel</a>
                                 </div>
                             </div>
 
