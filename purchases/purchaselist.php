@@ -8,7 +8,7 @@
      <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
      <meta name="author" content="Dreamguys - Bootstrap Admin Template">
      <meta name="robots" content="noindex, nofollow">
-     <title>Dreams Pos admin template</title>
+     <title>STOCK ANALYSER</title>
 
      <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
 
@@ -27,6 +27,14 @@
 
      <link rel="stylesheet" href="../assets/css/style.css">
  </head>
+ <?php
+    include('../inc/connect.php');
+    include('function.php');
+
+
+
+
+    ?>
 
  <body>
      <div id="global-loader">
@@ -44,7 +52,7 @@
                          <h6>Manage your purchases</h6>
                      </div>
                      <div class="page-btn">
-                         <a href="addpurchase.html" class="btn btn-added">
+                         <a href="addpurchase.php" class="btn btn-added">
                              <img src="../assets/img/icons/plus.svg" alt="img">Add New Purchases
                          </a>
                      </div>
@@ -135,18 +143,18 @@
                                                  <span class="checkmarks"></span>
                                              </label>
                                          </th>
+                                         <th>#</th>
                                          <th>Supplier Name</th>
                                          <th>Reference</th>
                                          <th>Date</th>
-                                         <th>Status</th>
                                          <th>Grand Total</th>
                                          <th>Paid</th>
-                                         <th>Due</th>
                                          <th>Payment Status</th>
+                                         <th>Billing</th>
                                          <th>Action</th>
                                      </tr>
                                  </thead>
-                                 <tbody>
+                                 <?php foreach ($purchases as $purchase) : ?>
                                      <tr>
                                          <td>
                                              <label class="checkboxs">
@@ -154,14 +162,16 @@
                                                  <span class="checkmarks"></span>
                                              </label>
                                          </td>
-                                         <td class="text-bolds">Apex Computers</td>
-                                         <td>PT001</td>
-                                         <td>19 Nov 2022</td>
-                                         <td><span class="badges bg-lightgreen">Received</span></td>
-                                         <td>550</td>
-                                         <td>120</td>
-                                         <td>550</td>
-                                         <td><span class="badges bg-lightgreen">Paid</span></td>
+                                         <td><?php echo $purchase['id_p'] ?></td>
+                                         <td><?php echo $purchase['name_supplier'] ?></td>
+                                         <td><?php echo $purchase['ref_buy'] ?></td>
+                                         <td><?php echo $purchase['date_buy'] ?></td>
+                                         <td>
+                                             <?php echo $purchase['qty_buy'] * $purchase['price_buy']; ?>
+                                         </td>
+                                         <td class="text-green"> <?php echo $purchase['qty_buy'] * $purchase['price_buy']; ?></td>
+                                         <td><span class="badges bg-lightgreen"><?php echo $purchase['status_buy'] ?></span></td>
+                                         <td><?php echo $purchase['nom'] ?></td>
                                          <td>
                                              <a class="me-3" href="editpurchase.php">
                                                  <img src="../assets/img/icons/edit.svg" alt="img">
@@ -171,6 +181,7 @@
                                              </a>
                                          </td>
                                      </tr>
+                                 <?php endforeach; ?>
                                  </tbody>
                              </table>
                          </div>
