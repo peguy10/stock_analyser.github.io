@@ -23,6 +23,63 @@ $product = new Product($pdo);
 $products = $product->getAll();
 // Affichage des catégories
 
+if (isset($_POST['send'])) {
+    $fileName = $_FILES["excel"]["name"];
+    $fileExtension = explode('.', $fileName);
+    $fileExtension = strtolower(end($fileExtension));
+
+    $newFileName = date("Y.m.d") . "-" . date("h.i.sa") . "." . $fileExtension;
+    $targetDirectory = "uploadsExcel/" . $newFileName;
+    move_uploaded_file($_FILES["excel"]["tmp_name"], $targetDirectory);
+
+    error_reporting(0);
+    ini_set('display_errors', 0);
+
+    require "../ExcelReader/excel_reader2.php";
+    require "../ExcelReader/SpreadsheetReader.php";
+
+    $reader = new SpreadsheetReader($targetDirectory);
+    foreach ($reader as $key => $row) {
+        $name = $row[0];
+        $sku = $row[1];
+        $category = $row[2];
+        $price = $row[3];
+        $quantity = $row[4];
+        $user = $row[5];
+        $image = $row[6];
+        $tax = $row[7];
+        $status = $row[8];
+        $description = $row[9];
+        $fournisseur = $row[10];
+        $date = $row[11];
+
+        $sql = "INSERT INTO product_list VALUES('',:name,:sku,:category,:price,:quantity,:user,:image,:tax,)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':sku', $sku);
+        $stmt->bindParam(':category', $category);
+        $stmt->bindParam(':price', $price);
+        $stmt->bindParam(':quantity', $quantity);
+        $stmt->bindParam(':user', $user);
+        $stmt->bindParam(':image', $image);
+        $stmt->bindParam(':tax', $tax);
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':fournisseur', $fournisseur);
+        $stmt->bindParam(':date', $date);
+        $result = $stmt->execute();
+        if ($result) {
+            echo "<script>
+                    alert('insertion ok')
+                 </script>";
+        } else {
+            echo "<script>
+    alert('echec D'
+            insertion ')
+</script>";
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -115,7 +172,7 @@ $products = $product->getAll();
                                             <img src="../assets/img/icons/pdf.svg" alt="img"></a>
                                     </li>
                                     <li>
-                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="excel"><img src="../assets/img/icons/excel.svg" alt="img"></a>
+                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-placement="top" title="excel"><img src="../assets/img/icons/excel.svg" alt="img"></a>
                                     </li>
                                     <li>
                                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="print"><img src="../assets/img/icons/printer.svg" alt="img"></a>
@@ -123,6 +180,38 @@ $products = $product->getAll();
                                 </ul>
                             </div>
                         </div>
+
+
+                        <!-- import file excel modal -->
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog        ">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Import Excel File</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form action="" method="POST" enctype="multipart/form-data">
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="file">Upload file</label>
+                                                <input type="file" class="form-control" name="excel">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" name="send" class="btn btn-primary">Import File</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- import file excel modal -->
+
+
+
 
                         <div class="card mb-0" id="filter_inputs">
                             <div class="card-body pb-0">
