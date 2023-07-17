@@ -198,7 +198,7 @@
                     <a href="javascript:void(0);"><img src="assets/img/icons/time.svg" alt="img"><span>
                             Report</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="report/purchaseorderreport.php">Purchase order report</a></li>
+                        <li><a href="report/Report1.php">Purchase order report</a></li>
                         <li><a href="report/inventoryreport.php">Inventory Report</a></li>
                         <li><a href="report/salesreport.php">Sales Report</a></li>
                         <li><a href="report/invoicereport.php">Invoice Report</a></li>
