@@ -246,7 +246,7 @@ $categories = $categorie->getAllC();
                                                             <td><input type="number" class="form-control form-control-sm" value="<?php echo $product['quantity'] ?>" name="qty<?php echo $product['id']; ?>" min="1" max="<?php echo $product['quantity'] ?>"></td>
                                                             <td><?php echo $product['price']; ?></td>
                                                             <td><?php echo $product['tax']; ?>%</td>
-                                                            <td><?php echo $price; ?> <input type="hidden" name="price<?php echo $product['id']; ?>" id="" value="<?php echo $price9; ?>"></td>
+                                                            <td><?php echo $price; ?> <input type="hidden" name="price<?php echo $product['id']; ?>" id="" value="<?php echo $price; ?>"></td>
                                                             <td>
                                                                 <a href="javascript:void(0);" class="delete-set"><img src="../assets/img/icons/delete.svg" alt="svg"></a>
                                                             </td>
