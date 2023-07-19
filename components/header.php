@@ -36,116 +36,120 @@
 
 
         <li class="nav-item dropdown has-arrow flag-nav">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);" role="button">
-                <img src="assets/img/flags/us1.png" alt="" height="20">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-                <a href="javascript:void(0);" class="dropdown-item">
-                    <img src="assets/img/flags/us.png" alt="" height="16"> English
-                </a>
-                <a href="javascript:void(0);" class="dropdown-item">
-                    <img src="assets/img/flags/fr.png" alt="" height="16"> French
-                </a>
-                <a href="javascript:void(0);" class="dropdown-item">
-                    <img src="assets/img/flags/es.png" alt="" height="16"> Spanish
-                </a>
-                <a href="javascript:void(0);" class="dropdown-item">
-                    <img src="assets/img/flags/de.png" alt="" height="16"> German
-                </a>
-            </div>
-        </li>
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+        <img src="assets/img/flags/us1.png" alt="" height="20">
+    </a>
+    <div class="dropdown-menu dropdown-menu-right">
+        <a href="?lang=en" class="dropdown-item">
+            <img src="assets/img/flags/us.png" alt="" height="16"> English
+        </a>
+        <a href="?lang=fr" class="dropdown-item">
+            <img src="assets/img/flags/fr.png" alt="" height="16"> French
+        </a>
+        <a href="?lang=es" class="dropdown-item">
+            <img src="assets/img/flags/es.png" alt="" height="16"> Spanish
+        </a>
+        <a href="?lang=de" class="dropdown-item">
+            <img src="assets/img/flags/de.png" alt="" height="16"> German
+        </a>
+    </div>
+</li>
 
 
-        <li class="nav-item dropdown">
-            <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-                <img src="assets/img/icons/notification-bing.svg" alt="img"> <span class="badge rounded-pill">4</span>
-            </a>
-            <div class="dropdown-menu notifications">
-                <div class="topnav-dropdown-header">
-                    <span class="notification-title">Notifications</span>
-                    <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
-                </div>
-                <div class="noti-content">
-                    <ul class="notification-list">
-                        <li class="notification-message">
-                            <a href="activities.html">
-                                <div class="media d-flex">
-                                    <span class="avatar flex-shrink-0">
-                                        <img alt="" src="assets/img/profiles/avaintar-02.jpg">
-                                    </span>
-                                    <div class="media-body flex-grow-1">
-                                        <p class="noti-details"><span class="noti-title">John Doe</span> added new task
-                                            <span class="noti-title">Patient appointment booking</span>
-                                        </p>
-                                        <p class="noti-time"><span class="notification-time">4 mins ago</span></p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="notification-message">
-                            <a href="activities.html">
-                                <div class="media d-flex">
-                                    <span class="avatar flex-shrink-0">
-                                        <img alt="" src="assets/img/profiles/avatar-03.jpg">
-                                    </span>
-                                    <div class="media-body flex-grow-1">
-                                        <p class="noti-details"><span class="noti-title">Tarah Shropshire</span> changed
-                                            the task name <span class="noti-title">Appointment booking with payment
-                                                gateway</span></p>
-                                        <p class="noti-time"><span class="notification-time">6 mins ago</span></p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="notification-message">
-                            <a href="activities.html">
-                                <div class="media d-flex">
-                                    <span class="avatar flex-shrink-0">
-                                        <img alt="" src="assets/img/profiles/avatar-06.jpg">
-                                    </span>
-                                    <div class="media-body flex-grow-1">
-                                        <p class="noti-details"><span class="noti-title">Misty Tison</span> added <span class="noti-title">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
-                                        <p class="noti-time"><span class="notification-time">8 mins ago</span></p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="notification-message">
-                            <a href="activities.html">
-                                <div class="media d-flex">
-                                    <span class="avatar flex-shrink-0">
-                                        <img alt="" src="assets/img/profiles/avatar-17.jpg">
-                                    </span>
-                                    <div class="media-body flex-grow-1">
-                                        <p class="noti-details"><span class="noti-title">Rolland Webber</span> completed
-                                            task <span class="noti-title">Patient and Doctor video conferencing</span>
-                                        </p>
-                                        <p class="noti-time"><span class="notification-time">12 mins ago</span></p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="notification-message">
-                            <a href="activities.html">
-                                <div class="media d-flex">
-                                    <span class="avatar flex-shrink-0">
-                                        <img alt="" src="assets/img/profiles/avatar-13.jpg">
-                                    </span>
-                                    <div class="media-body flex-grow-1">
-                                        <p class="noti-details"><span class="noti-title">Bernardo Galaviz</span> added
-                                            new task <span class="noti-title">Private chat module</span></p>
-                                        <p class="noti-time"><span class="notification-time">2 days ago</span></p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="topnav-dropdown-footer">
-                    <a href="activities.html">View all Notifications</a>
-                </div>
-            </div>
-        </li>
+        
+      
+
+<li class="nav-item dropdown">
+<a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+    <img src="assets/img/icons/notification-bing.svg" alt="img"> <span class="badge rounded-pill"> </span>
+</a>
+<div class="dropdown-menu notifications">
+    <div class="topnav-dropdown-header">
+        <span class="notification-title">Notifications</span>
+        <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
+    </div>
+    <div class="noti-content">
+    <?php
+// Connexion à la base de données
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "stock_analyser"; 
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Vérifier la connexion
+if ($conn->connect_error) {
+    die("Erreur de connexion à la base de données : " . $conn->connect_error);
+}
+
+?>
+
+        <ul class="notification-list">
+        <?php
+    // Requête pour récupérer les produits dont la quantité est inférieure à 5
+    $query = "SELECT * FROM product_list WHERE quantity < 5";
+    $result = mysqli_query($conn, $query);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $productName = $row['product_name'];
+        $notificationTime = $row['date_entree'];
+        $descriptions = $row['descriptions'];
+
+        echo '   <li class="notification-message">';
+        echo '        <a href="activities.html">';
+        echo '            <div class="media d-flex">';
+                   
+        echo '                <span class="avatar flex-shrink-0">';
+        echo '                    <img alt="" src="assets/img/profiles/avaintar-02.jpg">';
+        echo '                </span>';
+        echo '                <div class="media-body flex-grow-1">';
+        echo '                    <p class="noti-details"><span class="noti-title">' . $productName . '</span> a atteint le seuil minimum';
+        echo '                        <span class="noti-title">'.$descriptions.'</span>';
+        echo '                    </p>';
+        echo '                    <p class="noti-time"><span class="notification-time">'. $notificationTime .'</span></p>';
+        echo '                </div>';
+        echo '            </div>';
+        echo '        </a>';
+        echo '    </li>'; 
+    }
+    
+     
+    // Requête pour récupérer les commandes en cours
+    $query = "SELECT * FROM purchases WHERE status_buy = 'completed'";
+    $result = mysqli_query($conn, $query);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $orderId = $row['ref_buy'];
+        $orderDate = $row['date_buy'];
+        $status = $row['status_buy'];
+
+        echo '   <li class="notification-message">';
+        echo '        <a href="activities.html">';
+        echo '            <div class="media d-flex">';
+                   
+        echo '                <span class="avatar flex-shrink-0">';
+        echo '                    <img alt="" src="assets/img/profiles/avaintar-02.jpg">';
+        echo '                </span>';
+        echo '                <div class="media-body flex-grow-1">';
+        echo '                    <p class="noti-details"><span class="noti-title">' . $orderId . '</span> est';
+        echo '                        <span class="noti-title">'.$status.'</span>';
+        echo '                    </p>';
+        echo '                    <p class="noti-time"><span class="notification-time">'. $orderDate .'</span></p>';
+        echo '                </div>';
+        echo '            </div>';
+        echo '        </a>';
+        echo '    </li>';
+    }
+  
+        mysqli_close($conn);
+        ?>
+            
+    <div class="topnav-dropdown-footer">
+        <a href="activities.html">View all Notifications</a>
+    </div>
+</div>
+</li>
 
         <li class="nav-item dropdown has-arrow main-drop">
             <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">

@@ -29,16 +29,49 @@ if ($result->num_rows > 0) {
     $total_suppliers = $row['total_suppliers'];  
 } 
 
+$sql = "SELECT COUNT(*) AS total_sales FROM sales";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // Afficher le nombre de clients à l'écran
+    $row = $result->fetch_assoc();
+    $total_sales = $row['total_sales'];  
+} 
+
+$sql = "SELECT COUNT(*) AS total_purchases FROM purchases";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // Afficher le nombre de clients à l'écran
+    $row = $result->fetch_assoc();
+    $total_purchases = $row['total_purchases'];  
+} 
+
+$sql = "SELECT COUNT(*) AS total_purchases_due, SUM(qty_buy*price_buy) AS total_purchases_due FROM purchases";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // Afficher le nombre de clients à l'écran
+    $row = $result->fetch_assoc();
+    $total_purchases_due = $row['total_purchases_due'];  
+} 
+
+$sql = "SELECT COUNT(*) AS total_sales_due, SUM(quantity_sale*sale_price) AS total_sales_due FROM sales";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // Afficher le nombre de clients à l'écran
+    $row = $result->fetch_assoc();
+    $total_sales_due = $row['total_sales_due'];  
+} 
+
+
 // Fermer la connexion à la base de données
 $conn->close();
 ?>
     <div class="col-lg-3 col-sm-6 col-12">
         <div class="dash-widget">
             <div class="dash-widgetimg">
-                <span><img src="assets/img/icons/dash1.svg" alt="img"></span>
+              <span><img src="assets/img/icons/dash1.svg" alt="img"></span>
             </div>
             <div class="dash-widgetcontent">
-                <h5><span class="counters" data-count="307144.00">307,144.00 </span> XAF</h5>
+                <h5><span class="counters" data-count="<?php echo $total_purchases_due; ?>"><?php echo $total_purchases_due; ?></span> XAF</h5>
                 <h6>Total Purchase Due</h6>
             </div>
         </div>
@@ -49,7 +82,7 @@ $conn->close();
                 <span><img src="assets/img/icons/dash2.svg" alt="img"></span>
             </div>
             <div class="dash-widgetcontent">
-                <h5><span class="counters" data-count="4385.00">$4,385.00</span> XAF</h5>
+                <h5><span class="counters" data-count="<?php echo $total_sales_due; ?>"><?php echo $total_sales_due; ?></span> XAF</h5>
                 <h6>Total Sales Due</h6>
             </div>
         </div>
@@ -102,7 +135,7 @@ $conn->close();
     <div class="col-lg-3 col-sm-6 col-12 d-flex">
         <div class="dash-count das2">
             <div class="dash-counts">
-                <h4>100</h4>
+                <h4><?php echo $total_purchases; ?></h4>
                 <h5>Purchase Invoice</h5>
             </div>
             <div class="dash-imgs">
@@ -113,7 +146,7 @@ $conn->close();
     <div class="col-lg-3 col-sm-6 col-12 d-flex">
         <div class="dash-count das3">
             <div class="dash-counts">
-                <h4></h4>
+                <h4><?php echo $total_sales; ?></h4>
                 <h5>Sales Invoice</h5>
             </div>
             <div class="dash-imgs">
