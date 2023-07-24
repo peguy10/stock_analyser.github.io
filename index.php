@@ -73,9 +73,9 @@ if (isset($_SESSION['username'])) {
                 //echo "   <a href='productlist.php' class='product-img'>";
                // echo "       <img src='". $row["product_image"]. "'  alt='product'>";
                // echo "   </a>";
-                echo "    <a href='productlist.php'>". $row["product_name"] ."</a>";
+                echo "    <a href='product/product-details.php?sku=". $row["sku"]."'>". $row["product_name"] ."</a>";
                 echo "</td>";
-                echo "<td>$". $row["price"] ."</td>";
+                echo "<td>". number_format($row["price"],'0',',',' ')  ." FCFA</td>";
                 echo "</tr>";
             }
         } else {

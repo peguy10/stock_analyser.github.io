@@ -193,11 +193,11 @@ if (isset($_GET['id'])) {
                                                 <?php echo $client['quantity_sale']; ?>
                                             </td>
                                             <td style="padding: 10px;vertical-align: top; ">
-                                                <?php echo number_format($client['sale_price'],'0',',',' '); ?> FCFA
+                                                <?php echo number_format($client['sale_price'], '0', ',', ' '); ?> FCFA
                                             </td>
                                             <td style="padding: 10px;vertical-align: top; ">
                                                 <?php
-                                                echo number_format($client['quantity_sale'] * $client['sale_price'],'0','',' ');
+                                                echo number_format($client['quantity_sale'] * $client['sale_price'], '0', ',', ' ');
                                                 $total = $total + ($client['quantity_sale'] * $client['sale_price']);
                                                 ?> FCFA
                                             </td>
@@ -252,7 +252,7 @@ if (isset($_GET['id'])) {
                                             </li>
                                             <li class="total">
                                                 <h4>Grand Total</h4>
-                                                <h5><?php echo number_format($total,'0','',' ') ?> FCFA</h5>
+                                                <h5><?php echo number_format($total, '0', '', ' ') ?> FCFA</h5>
                                             </li>
                                         </ul>
                                     </div>

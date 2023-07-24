@@ -80,7 +80,8 @@ class GET
         $stmt = $this->pdo->query('SELECT * FROM product_list,categories,supplier,users 
                                    WHERE product_list.id_fournisseur=supplier.id_f 
                                    AND product_list.id_categorie=categories.id_cat 
-                                   AND product_list.id_user=users.id');
+                                   AND product_list.id_user=users.id
+                                   AND product_list.quantity >=1');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
@@ -243,7 +244,11 @@ $categories = $categorie->getAllC();
                                                                 </a>
                                                                 <a href="javascript:void(0);"><?php echo $product['product_name']; ?></a>
                                                             </td>
-                                                            <td><input type="number" class="form-control form-control-sm" value="<?php echo $product['quantity'] ?>" name="qty<?php echo $product['id']; ?>" min="1" max="<?php echo $product['quantity'] ?>"></td>
+                                                            <?php if ($product['quantity'] <= 0) { ?>
+                                                                <td><input type="number" class="form-control form-control-sm" value="<?php echo $product['quantity'] ?>" name="qty<?php echo $product['id']; ?>" min="1" max="<?php echo $product['quantity'] ?>" disabled></td>
+                                                            <?php } else { ?>
+                                                                <td><input type="number" class="form-control form-control-sm" value="<?php echo $product['quantity'] ?>" name="qty<?php echo $product['id']; ?>" min="1" max="<?php echo $product['quantity'] ?>"></td>
+                                                            <?php } ?>
                                                             <td><?php echo $product['price']; ?></td>
                                                             <td><?php echo $product['tax']; ?>%</td>
                                                             <td><?php echo $price; ?> <input type="hidden" name="price<?php echo $product['id']; ?>" id="" value="<?php echo $price; ?>"></td>

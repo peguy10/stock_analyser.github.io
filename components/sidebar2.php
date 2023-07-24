@@ -211,7 +211,7 @@
                     <a href="javascript:void(0);"><img src="../assets/img/icons/users1.svg" alt="img"><span>
                             Users</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="../users/newuser.php">New User </a></li>
+                        <li><a href="../users/adduser.php">New User </a></li>
                         <li><a href="../users/userlist.php">Users List</a></li>
                     </ul>
                 </li>

@@ -65,7 +65,7 @@ if (isset($_POST['inscription'])) {
                             <div class="form-login">
                                 <label>Email</label>
                                 <div class="form-addons">
-                                    <input type="email" placeholder="Enter your email address" name="email" />
+                                    <input type="email" placeholder="Enter your email address" name="email"/>
                                     <img src="assets/img/icons/mail.svg" alt="img" />
                                 </div>
                             </div>

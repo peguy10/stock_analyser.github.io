@@ -59,16 +59,7 @@ if (isset($_POST["submit"])) {
     }
 }
 
-
-
-
-//INSERTING DATA INTO DATABASE 
-$server = "localhost";
-$user = "root";
-$pass = "";
-$bd = "stock_analyser";
-
-
+include('../inc/connect.php');
 
 $product_image = $file_path;
 $product_name = $_POST['product_name'];
@@ -81,18 +72,70 @@ $created_by = $_POST['id_user'];;
 $descriptions = $_POST['descriptions'];
 $tax = $_POST['tax'];
 $date = date('Y-m-d');
-$statuss = $_POST['statuss'];
+$statuss = $_POST['status'];
+
+try {
+
+    // Préparation de la requête SQL
+    $sql = "INSERT INTO product_list(product_name, sku, id_categorie, price, quantity, id_user, product_image, descriptions, tax, status, id_fournisseur, date_entree) 
+            VALUES (:product_name, :sku, :category, :price, :quantity, :created_by, :product_image, :descriptions, :tax, :statuss, :fournisseur, :date)";
+    $stmt = $pdo->prepare($sql);
+
+    // Liaison des valeurs des paramètres à la requête préparée
+    $stmt->bindParam(':product_name', $product_name);
+    $stmt->bindParam(':sku', $sku);
+    $stmt->bindParam(':category', $category);
+    $stmt->bindParam(':price', $price);
+    $stmt->bindParam(':quantity', $quantity);
+    $stmt->bindParam(':created_by', $created_by);
+    $stmt->bindParam(':product_image', $product_image);
+    $stmt->bindParam(':descriptions', $descriptions);
+    $stmt->bindParam(':tax', $tax);
+    $stmt->bindParam(':statuss', $statuss);
+    $stmt->bindParam(':fournisseur', $fournisseur);
+    $stmt->bindParam(':date', $date);
+
+    // Exécution de la requête préparée
+    $stmt->execute();
+
+    header('location:productlist.php');
+} catch (PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+}
 
 
 
-$conn = mysqli_connect($server, $user, $pass, $bd);
 
-$sql = "INSERT INTO product_list(product_name,sku,id_categorie,price,quantity,id_user,product_image,descriptions,tax,status,id_fournisseur,date_entree) 
-        VALUES ('$product_name','$sku','$category','$price','$quantity','$created_by','$product_image','$descriptions','$tax','$statuss','$fournisseur',NOW())";
+//INSERTING DATA INTO DATABASE 
+// $server = "localhost";
+// $user = "root";
+// $pass = "";
+// $bd = "stock_analyser";
 
-mysqli_query($conn, $sql);
 
 
-mysqli_close($conn);
+// $product_image = $file_path;
+// $product_name = $_POST['product_name'];
+// $sku = $_POST['sku'];
+// $category = $_POST['id_cat'];
+// $fournisseur = $_POST['id_f'];
+// $price = $_POST['price'];
+// $quantity = $_POST['quantity'];
+// $created_by = $_POST['id_user'];;
+// $descriptions = $_POST['descriptions'];
+// $tax = $_POST['tax'];
+// $date = date('Y-m-d');
+// $statuss = $_POST['statuss'];
 
-header('location:productlist.php');
+// try {
+//     $conn = mysqli_connect($server, $user, $pass, $bd);
+
+//     $sql = "INSERT INTO product_list(product_name,sku,id_categorie,price,quantity,id_user,product_image,descriptions,tax,status,id_fournisseur,date_entree) 
+//         VALUES ('$product_name','$sku','$category','$price','$quantity','$created_by','$product_image','$descriptions','$tax','$statuss','$fournisseur','$date')";
+
+//    $result= mysqli_query($conn, $sql);
+   
+//     header('location:productlist.php');
+// } catch (PDOException $e) {
+//     echo $e->getMessage();
+// }

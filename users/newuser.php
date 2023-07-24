@@ -1,3 +1,23 @@
+<?php include '../inc/connect.php';
+if (isset($_POST['inscription'])) {
+    $nom = $_POST['nom'];
+    $email = $_POST['email'];
+    $mot_de_passe = password_hash($_POST['mot_de_passe'], PASSWORD_DEFAULT);
+
+    $stmt = $pdo->prepare("INSERT INTO users (nom, email, mot_de_passe) VALUES (:nom, :email, :mot_de_passe)");
+    $stmt->bindParam(':nom', $nom);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':mot_de_passe', $mot_de_passe);
+    if ($stmt->execute()) {
+        header("Location: index.php");
+    } else {
+        echo "echec d'insertion";
+    }
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +105,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
+                            <!-- <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label> Profile Picture</label>
                                     <div class="image-upload image-upload-new">
@@ -96,7 +116,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-lg-12">
                                 <a href="javascript:void(0);" class="btn btn-submit me-2">Submit</a>
                                 <a href="javascript:void(0);" class="btn btn-cancel">Cancel</a>
