@@ -38,6 +38,7 @@
             </div>
         </li>
 
+     
 
         <li class="nav-item dropdown has-arrow flag-nav">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);" role="button">
@@ -49,7 +50,7 @@
                 </a>
                 <a href="javascript:void(0);" class="dropdown-item">
                     <img src="../assets/img/flags/fr.png" alt="" height="16"> French
-                </a>
+                </a>s
                 <a href="javascript:void(0);" class="dropdown-item">
                     <img src="../assets/img/flags/es.png" alt="" height="16"> Spanish
                 </a>

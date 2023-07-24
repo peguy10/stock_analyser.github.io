@@ -137,7 +137,55 @@
                                      </tr>
                                  </thead>
                                  <tbody>
-                                     <tr>
+                                 <?php
+// Connexion à la base de données
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "stock_analyser"; 
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Vérifier la connexion
+if ($conn->connect_error) {
+    die("Erreur de connexion à la base de données : " . $conn->connect_error);
+}
+
+?>
+
+        <ul class="notification-list">
+        <?php
+    // Requête pour récupérer les produits dont la quantité est inférieure à 5
+    $query = "SELECT product_list.product_name, purchases.qty_buy, product_list.quantity, purchases.price_buy
+    FROM product_list
+    JOIN purchases ON product_list.id = purchases.product_id
+    WHERE DATE(purchases.date_buy) = CURDATE();";
+    $result = mysqli_query($conn, $query);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $productName = $row['product_name'];
+        $qty_buy = $row['qty_buy'];
+        $price_buy = $row['price_buy'];
+        $quantity = $row['quantity'];
+                              echo'   <tr>
+                                         <td>
+                                             <label class="checkboxs">
+                                                 <input type="checkbox">
+                                                 <span class="checkmarks"></span>
+                                             </label>
+                                         </td>
+                                         <td class="productimgname">
+                                             <a class="product-img">
+                                                 <img src="../assets/img/product/product1.jpg" alt="product">';
+                                      echo'       </a>';
+                                        echo'     <a href="javascript:void(0);">' .$productName.' </a>
+                                         </td>';
+                                  echo'       <td>'.$price_buy.'</td>';
+                                   echo '     <td>'.$quantity.'</td>';
+                              echo'           <td>'.$qty_buy.'</td>';
+                           echo'          </tr>';
+                           ?>
+                                    <!-- <tr>
                                          <td>
                                              <label class="checkboxs">
                                                  <input type="checkbox">
@@ -323,7 +371,7 @@
                                          <td>500.00</td>
                                          <td>20</td>
                                          <td>11</td>
-                                     </tr>
+                                     </tr> -->
                                  </tbody>
                              </table>
                          </div>

@@ -65,18 +65,8 @@
                                 </div>
                             </div>
                             <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Mobile</label>
-                                    <input type="text">
-                                </div>
-                                <div class="form-group">
-                                    <label>Role</label>
-                                    <select class="select">
-                                        <option>Select</option>
-                                        <option>Role</option>
-                                        <option>Role1</option>
-                                    </select>
-                                </div>
+                              
+                               
                                 <div class="form-group">
                                     <label>Confirm Password</label>
                                     <div class="pass-group">
