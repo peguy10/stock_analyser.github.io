@@ -320,7 +320,7 @@ if (isset($_POST['send'])) {
                                                 <a class="me-3" href="editproduct.php?sku=<?php echo $product['sku']; ?>">
                                                     <img src="../assets/img/icons/edit.svg" alt="img">
                                                 </a>
-                                                <a class="confirm-text" href="javascript:void(0);">
+                                                <a href="delete_product.php?sku=<?php echo $product['sku']; ?>" class="confirm-text" href="javascript:void(0);">
                                                     <img src="../assets/img/icons/delete.svg" alt="img">
                                                 </a>
                                             </td>

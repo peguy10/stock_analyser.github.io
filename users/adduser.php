@@ -1,3 +1,22 @@
+<?php include '../inc/connect.php';
+if (isset($_POST['inscription'])) {
+    $nom = $_POST['nom'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $mot_de_passe = password_hash($_POST['mot_de_passe'], PASSWORD_DEFAULT);
+
+    $stmt = $pdo->prepare("INSERT INTO users (nom, email, mot_de_passe, phone_user) VALUES (:nom, :email, :mot_de_passe, :phone)");
+    $stmt->bindParam(':nom', $nom);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':mot_de_passe', $mot_de_passe);
+    $stmt->bindParam(':phone', $phone);
+    if ($stmt->execute()) {
+        header("Location: index.php");
+    } else {
+        echo "echec d'insertion";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +67,18 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                    
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text">
+                                </div>
+                            </div>
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label>User Name</label>
@@ -64,14 +94,27 @@
                                     </div>
                                 </div>
                             </div>
-                           
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="text">
+                                </div>
+                            </div>
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="text">
                                 </div>
                             </div>
-                            
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>Role</label>
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Owner</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label> User Image</label>
@@ -84,11 +127,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <a href="javascript:void(0);" class="btn btn-submit me-2">Submit</a>
-                                <a href="userlist.html" class="btn btn-cancel">Cancel</a>
-                            </div>
-                        </div>
+
+                        </form>
                     </div>
                 </div>
 

@@ -36,120 +36,131 @@
 
 
         <li class="nav-item dropdown has-arrow flag-nav">
-    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
-        <img src="assets/img/flags/us1.png" alt="" height="20">
-    </a>
-    <div class="dropdown-menu dropdown-menu-right">
-        <a href="?lang=en" class="dropdown-item">
-            <img src="assets/img/flags/us.png" alt="" height="16"> English
-        </a>
-        <a href="?lang=fr" class="dropdown-item">
-            <img src="assets/img/flags/fr.png" alt="" height="16"> French
-        </a>
-        <a href="?lang=es" class="dropdown-item">
-            <img src="assets/img/flags/es.png" alt="" height="16"> Spanish
-        </a>
-        <a href="?lang=de" class="dropdown-item">
-            <img src="assets/img/flags/de.png" alt="" height="16"> German
-        </a>
-    </div>
-</li>
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+                <img src="assets/img/flags/us1.png" alt="" height="20">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="?lang=en" class="dropdown-item">
+                    <img src="assets/img/flags/us.png" alt="" height="16"> English
+                </a>
+                <a href="?lang=fr" class="dropdown-item">
+                    <img src="assets/img/flags/fr.png" alt="" height="16"> French
+                </a>
+                <a href="?lang=es" class="dropdown-item">
+                    <img src="assets/img/flags/es.png" alt="" height="16"> Spanish
+                </a>
+                <a href="?lang=de" class="dropdown-item">
+                    <img src="assets/img/flags/de.png" alt="" height="16"> German
+                </a>
+            </div>
+        </li>
 
 
-        
-      
 
-<li class="nav-item dropdown">
-<a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-    <img src="assets/img/icons/notification-bing.svg" alt="img"> <span class="badge rounded-pill"> </span>
-</a>
-<div class="dropdown-menu notifications">
-    <div class="topnav-dropdown-header">
-        <span class="notification-title">Notifications</span>
-        <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
-    </div>
-    <div class="noti-content">
-    <?php
-// Connexion à la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "stock_analyser"; 
 
-$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Vérifier la connexion
-if ($conn->connect_error) {
-    die("Erreur de connexion à la base de données : " . $conn->connect_error);
-}
+        <li class="nav-item dropdown">
+            <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+                <img src="assets/img/icons/notification-bing.svg" alt="img"> <span class="badge rounded-pill"> </span>
+            </a>
+            <div class="dropdown-menu notifications">
+                <div class="topnav-dropdown-header">
+                    <span class="notification-title">Notifications</span>
+                    <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
+                </div>
+                <div class="noti-content">
+                    <?php
+                    // Connexion à la base de données
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "stock_analyser";
 
-?>
+                    $conn = new mysqli($servername, $username, $password, $dbname);
 
-        <ul class="notification-list">
-        <?php
-    // Requête pour récupérer les produits dont la quantité est inférieure à 5
-    $query = "SELECT * FROM product_list WHERE quantity < 5";
-    $result = mysqli_query($conn, $query);
+                    // Vérifier la connexion
+                    if ($conn->connect_error) {
+                        die("Erreur de connexion à la base de données : " . $conn->connect_error);
+                    }
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        $productName = $row['product_name'];
-        $notificationTime = $row['date_entree'];
-        $descriptions = $row['descriptions'];
+                    ?>
 
-        echo '   <li class="notification-message">';
-        echo '        <a href="activities.html">';
-        echo '            <div class="media d-flex">';
-                   
-        echo '                <span class="avatar flex-shrink-0">';
-        echo '                    <img alt="" src="assets/img/profiles/avaintar-02.jpg">';
-        echo '                </span>';
-        echo '                <div class="media-body flex-grow-1">';
-        echo '                    <p class="noti-details"><span class="noti-title">' . $productName . '</span> a atteint le seuil minimum';
-        echo '                        <span class="noti-title">'.$descriptions.'</span>';
-        echo '                    </p>';
-        echo '                    <p class="noti-time"><span class="notification-time">'. $notificationTime .'</span></p>';
-        echo '                </div>';
-        echo '            </div>';
-        echo '        </a>';
-        echo '    </li>'; 
-    }
-    
-     
-    // Requête pour récupérer les commandes en cours
-    $query = "SELECT * FROM purchases WHERE status_buy = 'completed'";
-    $result = mysqli_query($conn, $query);
+                    <ul class="notification-list">
+                        <?php
+                        // Requête pour récupérer les produits dont la quantité est inférieure à 5
+                        $query = "SELECT * FROM product_list WHERE quantity < 5";
+                        $result = mysqli_query($conn, $query);
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        $orderId = $row['ref_buy'];
-        $orderDate = $row['date_buy'];
-        $status = $row['status_buy'];
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $productName = $row['product_name'];
+                            $notificationTime = $row['date_entree'];
+                            $descriptions = $row['descriptions'];
+                            $image = $row['product_image'];
+                            $sku = $row['sku'];
+                            // Obtenir le chemin absolu de l'image
+                            $absolute_path = realpath($image);
 
-        echo '   <li class="notification-message">';
-        echo '        <a href="activities.html">';
-        echo '            <div class="media d-flex">';
-                   
-        echo '                <span class="avatar flex-shrink-0">';
-        echo '                    <img alt="" src="assets/img/profiles/avaintar-02.jpg">';
-        echo '                </span>';
-        echo '                <div class="media-body flex-grow-1">';
-        echo '                    <p class="noti-details"><span class="noti-title">' . $orderId . '</span> est';
-        echo '                        <span class="noti-title">'.$status.'</span>';
-        echo '                    </p>';
-        echo '                    <p class="noti-time"><span class="notification-time">'. $orderDate .'</span></p>';
-        echo '                </div>';
-        echo '            </div>';
-        echo '        </a>';
-        echo '    </li>';
-    }
-  
-        mysqli_close($conn);
-        ?>
-            
-    <div class="topnav-dropdown-footer">
-        <a href="activities.html">View all Notifications</a>
-    </div>
-</div>
-</li>
+
+                            echo '   <li class="notification-message">';
+                            echo '        <a href="product/product-details.php?sku=' . $sku . '">';
+                            echo '            <div class="media d-flex">';
+
+                            echo '                <span class="avatar flex-shrink-0">';
+                            echo '                    <img alt="" src="' . $absolute_path . '">';
+                            echo '                </span>';
+                            echo '                <div class="media-body flex-grow-1">';
+                            echo '                    <p class="noti-details"><span class="noti-title">' . $productName . '</span> <span class="text-warning">Has reached the minimum threshold.</span>';
+                            echo '                  ';
+                            echo '                    </p>';
+                            echo '                    <p class="noti-time"><span class="notification-time">' . $notificationTime . '</span></p>';
+                            echo '                </div>';
+                            echo '            </div>';
+                            echo '        </a>';
+                            echo '    </li>';
+                        }
+
+
+                        // Requête pour récupérer les commandes en cours
+                        $date = date('Y-m-d');
+                        $query = "SELECT * FROM purchases, product_list WHERE purchases.id_p = product_list.id AND purchases.date_buy = '$date' AND status_buy = 'completed'";
+                        $result = mysqli_query($conn, $query);
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $orderId = $row['ref_buy'];
+                            $orderDate = $row['date_buy'];
+                            $status = $row['status_buy'];
+                            $image = $row['product_image'];
+
+                            $sku = $row['sku'];
+                            $absolute_path = realpath($image);
+
+
+                            echo '   <li class="notification-message">';
+                            echo '        <a href="product/product-details.php?sku=' . $sku . '">';
+                            echo '            <div class="media d-flex">';
+
+                            echo '                <span class="avatar flex-shrink-0">';
+                            echo '                    <img alt="" src="' . $absolute_path . '">';
+                            echo '                </span>';
+                            echo '                <div class="media-body flex-grow-1">';
+                            echo '                    <p class="noti-details"><span class="noti-title">' . $orderId . '</span> est';
+                            echo '                        <span class="noti-title">' . $status . '</span>';
+                            echo '                    </p>';
+                            echo '                    <p class="noti-time"><span class="notification-time">' . $orderDate . '</span></p>';
+                            echo '                </div>';
+                            echo '            </div>';
+                            echo '        </a>';
+                            echo '    </li>';
+                        }
+
+                        mysqli_close($conn);
+                        ?>
+
+                        <div class="topnav-dropdown-footer">
+                            <a href="activities.html">View all Notifications</a>
+                        </div>
+                </div>
+        </li>
 
         <li class="nav-item dropdown has-arrow main-drop">
             <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
