@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '2cac241ce7bb42e63d73ed62e3703f3a30086344',
+        'reference' => '573943dde3fe525b52b45702e30d0dc07290c3b0',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '2cac241ce7bb42e63d73ed62e3703f3a30086344',
+            'reference' => '573943dde3fe525b52b45702e30d0dc07290c3b0',
             'dev_requirement' => false,
         ),
         'amphp/amp' => array(
@@ -89,6 +89,15 @@
             'install_path' => __DIR__ . '/../andrewdalpino/okbloomer',
             'aliases' => array(),
             'reference' => '39321cb515c1e99128d28489b0187120ba7ce84c',
+            'dev_requirement' => false,
+        ),
+        'markrogoyski/math-php' => array(
+            'pretty_version' => 'v2.8.1',
+            'version' => '2.8.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../markrogoyski/math-php',
+            'aliases' => array(),
+            'reference' => 'ea4f212732c333c62123c6f733edfb735a4e3abd',
             'dev_requirement' => false,
         ),
         'php-ai/php-ml' => array(

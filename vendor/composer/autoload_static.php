@@ -72,6 +72,10 @@ class ComposerStaticInitd04008a2c4f728f0c830650a0d16e024
         array (
             'OkBloomer\\' => 10,
         ),
+        'M' => 
+        array (
+            'MathPHP\\' => 8,
+        ),
         'A' => 
         array (
             'Amp\\Sync\\' => 9,
@@ -149,6 +153,10 @@ class ComposerStaticInitd04008a2c4f728f0c830650a0d16e024
         'OkBloomer\\' => 
         array (
             0 => __DIR__ . '/..' . '/andrewdalpino/okbloomer/src',
+        ),
+        'MathPHP\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/markrogoyski/math-php/src',
         ),
         'Amp\\Sync\\' => 
         array (

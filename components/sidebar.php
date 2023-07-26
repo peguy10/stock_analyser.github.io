@@ -202,7 +202,7 @@
                         <li><a href="report/inventoryreport.php">Inventory Report</a></li>
                         <li><a href="report/salesreport.php">Sales Report</a></li>
                         <li><a href="report/invoicereport.php">Invoice Report</a></li>
-                        <li><a href="report/purchasereport.php">Purchase Report</a></li>
+                        <li><a href="report/report1.php">Purchase Report</a></li>
                         <li><a href="report/supplierreport.php">Supplier Report</a></li>
                         <li><a href="report/customerreport.php">Customer Report</a></li>
                     </ul>

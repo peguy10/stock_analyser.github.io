@@ -28,7 +28,6 @@ if (isset($_POST['analyser'])) {
     // Calcul de la quantité totale de produits vendus pour le mois de juillet 2023
     $stmt = $pdo->prepare('SELECT SUM(quantity_sale) AS quantite_vendue FROM sales WHERE MONTH(sale_date) = :mois AND YEAR(sale_date) = 2023');
     $stmt->bindParam(':mois', $mois);
-
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     $quantite_vendue = $result['quantite_vendue'];
@@ -79,6 +78,24 @@ if (isset($_POST['analyser'])) {
             $month = '';
             break;
     }
+
+    // Récupération des données de ventes pour le mois en cours
+    $stmt1 = $pdo->prepare('SELECT SUM(quantity_sale * sale_price) AS chiffre_affaires, DAY(sale_date) AS jour FROM sales WHERE MONTH(sale_date) = :mois AND YEAR(sale_date) = YEAR(CURRENT_DATE()) GROUP BY DAY(sale_date)');
+    $stmt1->bindParam(':mois', $mois);
+    $stmt1->execute();
+    $result1s = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+    // Calcul de la moyenne des ventes par jour
+    $total_ventes = 0;
+    $nb_jours = count($results);
+    foreach ($result1s as $result) {
+        $total_ventes += $result['chiffre_affaires'];
+    }
+    $moyenne_ventes_jour = $total_ventes / $nb_jours;
+
+    // Prévision des ventes pour le reste du mois
+    $jour_actuel = date('j');
+    $nb_jours_restants = cal_days_in_month(CAL_GREGORIAN, $mois, date('Y')) - $jour_actuel;
+    $ventes_prevues = $moyenne_ventes_jour * $nb_jours_restants;
 } else {
 
     // Récupération des données de ventes pour le mois de juillet 2023
@@ -104,7 +121,22 @@ if (isset($_POST['analyser'])) {
         $data[] = array('label' => $result['jour'], 'value' => $result['chiffre_affaires']);
     }
     $month = 'Juillet';
+    // Récupération des données de ventes pour le mois en cours
+    $stmt1 = $pdo->prepare('SELECT SUM(quantity_sale * sale_price) AS chiffre_affaires, DAY(sale_date) AS jour FROM sales WHERE MONTH(sale_date) = 7 AND YEAR(sale_date) = YEAR(CURRENT_DATE()) GROUP BY DAY(sale_date)');
+    $stmt1->execute();
+    $result1s = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+    // Calcul de la moyenne des ventes par jour
+    $total_ventes = 0;
+    $nb_jours = count($results);
+    foreach ($result1s as $result) {
+        $total_ventes += $result['chiffre_affaires'];
+    }
+    $moyenne_ventes_jour = $total_ventes / $nb_jours;
 
+    // Prévision des ventes pour le reste du mois
+    $jour_actuel = date('j');
+    $nb_jours_restants = cal_days_in_month(CAL_GREGORIAN, 7, date('Y')) - $jour_actuel;
+    $ventes_prevues = $moyenne_ventes_jour * $nb_jours_restants;
 }
 
 
@@ -150,3 +182,14 @@ echo 'data: data,';
 echo 'options: options';
 echo '});';
 echo '</script>';
+
+
+
+
+
+
+
+// Affichage des résultats
+echo "La moyenne des ventes par jour pour le mois <strong>" . $month . "</strong> est de <strong>" . number_format($moyenne_ventes_jour, '0', ',', ' ') . " FCFA</strong>.\n";
+echo "<br>Si cette tendance se maintient, les ventes prévues pour le reste du mois sont de<strong> " . number_format($ventes_prevues, '0', ',', ' ') . " FCFA</strong>.";
+

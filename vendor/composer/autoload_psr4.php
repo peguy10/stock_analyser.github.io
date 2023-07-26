@@ -22,6 +22,7 @@ return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Phpml\\' => array($vendorDir . '/php-ai/php-ml/src'),
     'OkBloomer\\' => array($vendorDir . '/andrewdalpino/okbloomer/src'),
+    'MathPHP\\' => array($vendorDir . '/markrogoyski/math-php/src'),
     'Amp\\Sync\\' => array($vendorDir . '/amphp/sync/src'),
     'Amp\\Serialization\\' => array($vendorDir . '/amphp/serialization/src'),
     'Amp\\Process\\' => array($vendorDir . '/amphp/process/lib'),

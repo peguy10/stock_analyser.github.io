@@ -1,6 +1,9 @@
 {
     "require": {
         "php-ai/php-ml": "^0.9.0",
-        "rubix/ml": "^2.4"
+        "rubix/ml": "^2.4",
+        "markrogoyski/math-php": "^2.8"
+
     }
+    
 }
