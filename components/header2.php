@@ -1,93 +1,7 @@
-<<<<<<< HEAD
-<div class="header">
-
-    <div class="header-left active">
-        <a href="index.html" class="logo">
-            <img src="../assets/img/logo.png" alt="">
-        </a>
-        <a href="index.html" class="logo-small">
-            <img src="../assets/img/logo-small.png" alt="">
-        </a>
-        <a id="toggle_btn" href="javascript:void(0);">
-        </a>
-    </div>
-
-    <a id="mobile_btn" class="mobile_btn" href="#sidebar">
-        <span class="bar-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </span>
-    </a>
-
-    <ul class="nav user-menu">
-
-        <li class="nav-item">
-            <div class="top-nav-search">
-                <a href="javascript:void(0);" class="responsive-search">
-                    <i class="fa fa-search"></i>
-                </a>
-                <form action="#">
-                    <div class="searchinputs">
-                        <input type="text" placeholder="Search Here ...">
-                        <div class="search-addon">
-                            <span><img src="../assets/img/icons/closes.svg" alt="img"></span>
-                        </div>
-                    </div>
-                    <a class="btn" id="searchdiv"><img src="../assets/img/icons/search.svg" alt="img"></a>
-                </form>
-            </div>
-        </li>
-
-     
-
-        <li class="nav-item dropdown has-arrow flag-nav">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);" role="button">
-                <img src="../assets/img/flags/us1.png" alt="" height="20">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-                <a href="javascript:void(0);" class="dropdown-item">
-                    <img src="../assets/img/flags/us.png" alt="" height="16"> English
-                </a>
-                <a href="javascript:void(0);" class="dropdown-item">
-                    <img src="../assets/img/flags/fr.png" alt="" height="16"> French
-                </a>s
-                <a href="javascript:void(0);" class="dropdown-item">
-                    <img src="../assets/img/flags/es.png" alt="" height="16"> Spanish
-                </a>
-                <a href="javascript:void(0);" class="dropdown-item">
-                    <img src="../assets/img/flags/de.png" alt="" height="16"> German
-                </a>
-            </div>
-        </li>
 
 
-        <li class="nav-item dropdown">
-<a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-    <img src="assets/img/icons/notification-bing.svg" alt="img"> <span class="badge rounded-pill"> </span>
-</a>
-<div class="dropdown-menu notifications">
-    <div class="topnav-dropdown-header">
-        <span class="notification-title">Notifications</span>
-        <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
-    </div>
-    <div class="noti-content">
-    <?php
-// Connexion à la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "stock_analyser"; 
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Vérifier la connexion
-if ($conn->connect_error) {
-    die("Erreur de connexion à la base de données : " . $conn->connect_error);
-}
-=======
 <?php
->>>>>>> 2cac241ce7bb42e63d73ed62e3703f3a30086344
+
 
 session_start();
 if (isset($_SESSION['username'])) {
@@ -157,7 +71,31 @@ if (isset($_SESSION['username'])) {
 
             <li class="nav-item dropdown">
                 <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-                    <img src="../assets/img/icons/notification-bing.svg" alt="img"> <span class="badge rounded-pill"> </span>
+                    <img src="../assets/img/icons/notification-bing.svg" alt="img"> <span class="badge rounded-pill">
+                       <?php   
+                       
+                       
+                    
+                       include('../inc/connect.php');
+                       $sql = "SELECT * FROM product_list WHERE quantity < 5";
+                       $stmt = $pdo->prepare($sql);
+                       $stmt->execute();
+                       $qty = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                       
+                       $count=count($qty);
+                     
+                     $date=date('Y-m-d');
+                       $sql2 = "SELECT * FROM purchases, product_list WHERE purchases.id_p = product_list.id AND purchases.date_buy = '$date' AND status_buy = 'completed'";
+                       $stmt2 = $pdo->prepare($sql2);
+                       $stmt2->execute();
+                       $pur = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+                        $count2=count($pur);
+                     
+                        
+                             echo $count + $count2; 
+
+                    ?>
+                    </span>
                 </a>
                 <div class="dropdown-menu notifications">
                     <div class="topnav-dropdown-header">

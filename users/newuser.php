@@ -95,18 +95,21 @@ if (isset($_POST['inscription'])) {
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label> Profile Picture</label>
                                     <div class="image-upload image-upload-new">
                                         <input type="file">
                                         <div class="image-uploads">
-                                            <img src="../assets/img/icons/upload.svg" alt="img">
                                             <h4>Drag and drop a file to upload</h4>
+                                            <div>
+                                            <input type="file" id="product_image" name="product_image" accept=".jpg, .jpeg, .png">
+
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div> 
                             <div class="col-lg-12">
                                 <a href="javascript:void(0);" class="btn btn-submit me-2">Submit</a>
                                 <a href="javascript:void(0);" class="btn btn-cancel">Cancel</a>

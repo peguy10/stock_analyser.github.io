@@ -56,12 +56,46 @@
         </li>
 
 
+        <?php 
+    $sname = "localhost"; // mysql server name
+    $uname = "root"; // user name
+    $password = ""; // password
+    $db_name = "stock_analyser"; // database name
+
+    $conn = mysqli_connect($sname, $uname, $password, $db_name); // connect to the database
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("Erreur lors de la connexion à la base de données : " . $conn->connect_error);
+    }
+
+    include('inc/connect.php');
+  $sql = "SELECT * FROM product_list WHERE quantity < 5";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute();
+  $qty = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  
+  $count=count($qty);
+
+$date=date('Y-m-d');
+  $sql2 = "SELECT * FROM purchases, product_list WHERE purchases.id_p = product_list.id AND purchases.date_buy = '$date' AND status_buy = 'completed'";
+  $stmt2 = $pdo->prepare($sql2);
+  $stmt2->execute();
+  $pur = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+   $count2=count($pur);
+
+   
+        $total_tout = $count + $count2;
+?>
 
 
 
         <li class="nav-item dropdown">
             <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-                <img src="assets/img/icons/notification-bing.svg" alt="img"> <span class="badge rounded-pill"> </span>
+                <img src="assets/img/icons/notification-bing.svg" alt="img"> <span class="badge rounded-pill"> 
+
+          <?php echo $total_tout;?>
+                </span>
             </a>
             <div class="dropdown-menu notifications">
                 <div class="topnav-dropdown-header">
@@ -163,10 +197,21 @@
         </li>
 
         <li class="nav-item dropdown has-arrow main-drop">
-            <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
-                <span class="user-img"><img src="assets/img/profiles/avator1.jpg" alt="">
+       <?php 
+       $sname = "localhost";// mysql server name
+       $uname = "root"; // user name
+       $password = ""; // password
+       $db_name = "stock_analyser"; // database name
+       
+       $conn = mysqli_connect($sname, $uname, $password, $db_name);
+       $query = "SELECT * FROM users ";
+                        $result = mysqli_query($conn, $query);
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo'<a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
+                <span class="user-img"><img src="'.$row['user_image'].'" alt="">
                     <span class="status online"></span></span>
-            </a>
+            </a>'; ?>
             <div class="dropdown-menu menu-drop-user">
                 <div class="profilename">
                     <div class="profileset">

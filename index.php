@@ -62,7 +62,7 @@ if (isset($_SESSION['username'])) {
 
         $conn = mysqli_connect($sname, $uname, $password, $db_name); // connect to the database
 
-        $query = "SELECT * FROM product_list ORDER BY date_entree DESC LIMIT 7";
+        $query = "SELECT * FROM product_list ORDER BY date_entree ASC LIMIT 7";
         $resultat = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($resultat) > 0) {
