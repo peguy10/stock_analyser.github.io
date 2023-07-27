@@ -60,15 +60,7 @@
         $row = $result->fetch_assoc();
         $total_sales_due = $row['total_sales_due'];
     }
-    $sql = "SELECT (product_list.*)
-    FROM product_list, sales.sale_price - (SUM((product_list.tax * product_list.price)/100)) AS benefice
-    JOIN sales ON sales.product_id = product_list.id;";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        // Afficher le nombre de clients à l'écran
-        $row = $result->fetch_assoc();
-        $benefice = $row['benefice'];
-    }
+   
 
     // Fermer la connexion à la base de données
     $conn->close();
@@ -95,17 +87,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-6 col-sm-6 col-12">
-        <div class="dash-widget">
-            <div class="dash-widgetimg">
-                <span><img src="assets/img/icons/dash1.svg" alt="img"></span>
-            </div>
-            <div class="dash-widgetcontent">
-                <h5><span class="counters" data-count="<?php echo $total_purchases_due; ?>"><?php echo number_format($total_purchases_due, '0', ',', ' '); ?></span> FCFA</h5>
-                <h6>Benefice</h6>
-            </div>
-        </div>
-    </div>
+   
     <!-- <div class="col-lg-3 col-sm-6 col-12">
         <div class="dash-widget dash2">
             <div class="dash-widgetimg">
