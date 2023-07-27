@@ -21,10 +21,10 @@
                             Sales</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="sales/saleslist.php">Sales List</a></li>
-                        <li><a href="pos.php">POS</a></li>
+                        <!-- <li><a href="pos.php">POS</a></li> -->
                         <li><a href="sales/add-sales.php">New Sales</a></li>
-                        <li><a href="sales/salesreturnlist.php">Sales Return List</a></li>
-                        <li><a href="sales/createsalesreturn.php">New Sales Return</a></li>
+                        <!-- <li><a href="sales/salesreturnlist.php">Sales Return List</a></li>
+                        <li><a href="sales/createsalesreturn.php">New Sales Return</a></li> -->
                     </ul>
                 </li>
                 <li class="submenu">
@@ -82,8 +82,8 @@
                         <li><a href="clients/addcustomer.php">Add Customer </a></li>
                         <li><a href="fournisseurs/supplierlist.php">Supplier List</a></li>
                         <li><a href="fournisseurs/addsupplier.php">Add Supplier </a></li>
-                        <li><a href="users/userlist.html">User List</a></li>
-                        <li><a href="users/adduser.html">Add User</a></li>
+                        <li><a href="users/userlist.php">User List</a></li>
+                        <li><a href="users/adduser.php">Add User</a></li>
                     </ul>
                 </li>
                 <!--

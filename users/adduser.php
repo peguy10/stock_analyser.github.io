@@ -27,7 +27,7 @@ if (isset($_POST['inscription'])) {
     <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title><a href="../assets/img/logo.png"></a></title>
+    <title>STOCK ANALYSER</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
 
@@ -63,54 +63,56 @@ if (isset($_POST['inscription'])) {
                         <h6>Add/Update User</h6>
                     </div>
                 </div>
-                <form name="main" action="addusertodatabase.php" method="post">
-    
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="form-group" id="nom">
-                        <label>User Name</label>
-                        <input type="text" name="nom">
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="form-group">
-                        <label>Password</label>
-                        <div class="pass-group">
-                            <input type="password" class="pass-input" id="mot_de_passe" name="mot_de_passe">
-                            <span class="fas toggle-password fa-eye-slash"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" id="email" name="email">
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" id="phone" name="phone">
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="form-group">
-                        <label>User Image</label>
-                        <input type="file" id="user_image" name="user_image" accept=".jpg, .jpeg, .png">
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                            <input type="submit" name="submit" value="submit" class="btn btn-submit me-2"></input> 
-                                <!-- <a href="javascript:void(0);" class="btn btn-submit me-2">Submit</a> -->
-                                <a href="userlist.php" class="btn btn-cancel">Cancel</a>
-                            </div>
-            </div>
-        </div>
-    </div>
-</form>
 
+                <div class="card">
+                    <div class="card-body">
+                        <form action="" method="post">
+                            <div class="row">
+                                <div class="col-lg-3 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" placeholder="Enter your full name" name="nom" />
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <div class="pass-group">
+                                            <input type="password" class="pass-input" placeholder="Enter your password" name="mot_de_passe" />
+                                            <span class="fas toggle-password fa-eye-slash"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Phone</label>
+                                        <input type="number" class="form-control" placeholder="entert your phone number" name="phone">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" placeholder="Enter your email address" name="email" class="form-control" />
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>Role</label>
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Owner</option>
+                                    </select>
+                                </div>
+                            </div> -->
+
+                                <div class="col-lg-12">
+                                    <button type="submit" name="inscription" class="btn btn-submit me-2">Submit</button>
+                                        <a href="userlist.php" class="btn btn-cancel">Cancel</a>
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
                 </div>
 

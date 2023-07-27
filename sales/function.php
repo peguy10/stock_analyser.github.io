@@ -79,3 +79,61 @@ function getTotal($id)
 $sales = getAll();
 $id_clt = getID();
 $total = 0;
+
+
+
+if (isset($_POST['add_fact']) && isset($_POST['facts'])) {
+
+    include('../inc/connect.php');
+    $user = $_POST['id_user'];
+    $client = $_POST['id_c'];
+    $discount = $_POST['discount'];
+    $shipping = $_POST['shipping'];
+    $status =  $_POST['status'];
+    $dates = date('Y-m-d');
+    $facts = $_POST['facts'];
+    $ref = $_POST['ref'];
+    $facts = isset($_POST['facts']) ? $_POST['facts'] : array();
+    $price = array();
+    $qty = array();
+
+    foreach ($facts as $fact) {
+        $price[$fact] = $_POST['price' . $fact];
+        $qty[$fact] = $_POST['qty' . $fact];
+    }
+
+    try {
+        $sql = "INSERT INTO facture (id_p,ref_fact,qty_fact,unit_price,discount,shipping,status_fact,id_c,date_fact,id_user)
+                VALUES (:fact, :ref, :qty, :price, :discount, :shipping, :status, :client, :dates, :user)";
+
+        foreach ($facts as $fact) {
+
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':fact', $fact);
+            $stmt->bindParam(':qty', $qty[$fact]);
+            $stmt->bindParam(':price', $price[$fact]);
+            $stmt->bindParam(':dates', $dates);
+            $stmt->bindParam(':ref', $ref);
+            $stmt->bindParam(':status', $status);
+            $stmt->bindParam(':client', $client);
+            $stmt->bindParam(':user', $user);
+            $stmt->bindParam(':shipping', $shipping);
+            $stmt->bindParam(':discount', $user);
+
+            $result = $stmt->execute();
+
+            if ($result) {
+                echo "<script>
+    alert('insertion ok')
+</script>";
+            } else {
+                echo "<script>
+    alert('echec D'
+            insertion ')
+</script>";
+            }
+        }
+    } catch (PDOException $e) {
+        echo " erreur : " . $e->getMessage();
+    }
+}

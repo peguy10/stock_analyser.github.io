@@ -56,6 +56,8 @@
         </li>
 
 
+
+
         <?php 
     $sname = "localhost"; // mysql server name
     $uname = "root"; // user name
@@ -196,22 +198,12 @@ $date=date('Y-m-d');
                 </div>
         </li>
 
-        <li class="nav-item dropdown has-arrow main-drop">
-       <?php 
-       $sname = "localhost";// mysql server name
-       $uname = "root"; // user name
-       $password = ""; // password
-       $db_name = "stock_analyser"; // database name
-       
-       $conn = mysqli_connect($sname, $uname, $password, $db_name);
-       $query = "SELECT * FROM users ";
-                        $result = mysqli_query($conn, $query);
 
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo'<a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
-                <span class="user-img"><img src="'.$row['user_image'].'" alt="">
+        <li class="nav-item dropdown has-arrow main-drop">
+            <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
+                <span class="user-img"><img src="assets/img/profiles/avator1.jpg" alt="">
                     <span class="status online"></span></span>
-            </a>'; ?>
+            </a>
             <div class="dropdown-menu menu-drop-user">
                 <div class="profilename">
                     <div class="profileset">
